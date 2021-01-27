@@ -10,12 +10,19 @@
         {% block javascripts %}{% endblock %}
     </head>
     <body>
+    <!-- Header -->
     {{ block('sidemenu', "menu/menu.html.twig") }}
-    <div id="container">
-    {{ block('header', "components/global/header.html.twig") }}
-    </div>
-    {% block body %}
 
-    {% endblock %}
+    <!-- Container right side -->
+    <div id="container">
+     {{ block('header', "components/global/header.html.twig") }}
+
+        <div class="page-content">
+        {% block body %}
+            
+        {% endblock %}
+        </div>
+
+    </div>
     </body>
 </html>

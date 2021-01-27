@@ -1,4 +1,5 @@
 @use 'vars' as global
+@use 'menu' as menu
 
 body
   background-color: global.$main-bg-color
@@ -7,6 +8,15 @@ body
   display: flex
   flex-direction: row
 
+/* CORE CONTAINER*/
+#container
+  border-radius: 10px 0 0 10px
+  width: 80%
+  display: flex
+  flex-direction: column
+  padding-left: 50px
+  color: white
+
 /** SIDE NAVIGATION PART STYLE (Will need refactor) **/
 
 .side-menu
@@ -14,10 +24,10 @@ body
   font-size: global.$font-size
   width: 20%
   height: 100vh
-  background-color: global.$menu-bg-color
+  background-color: menu.$menu-bg-color
   display: flex
   flex-direction: column
-  border-radius: 0px 10px 10px 0px
+  border-radius: 0 10px 10px 0
 
   .side-menu-container
     width: 80%
@@ -88,7 +98,7 @@ nav
 
     &:hover
       cursor: pointer
-      background-color: global.$li-hover-color
+      background-color: menu.$li-hover-color
       padding-left: 10px
       transition: ease-in 0.2s
 
@@ -103,7 +113,7 @@ nav
     &:focus
       color: white
     &:hover
-      color: global.$link-hover-color
+      color: menu.$link-hover-color
 
   i
     margin-right: 10px
@@ -123,12 +133,6 @@ button:hover
 
 button:focus
   outline: 0
-
-/* CORE CONTAINER*/
-
-#container
-  border-radius: 10px 0 0 10px
-  width: 80%
 
 /* HEADER PART */
 header
@@ -174,6 +178,8 @@ header
   right: 100px
   top: 30px
 
+/* MEDIA QUERIES PART */
+
 @media screen and (max-width: 960px)
   header
     #header-left-side
@@ -190,6 +196,11 @@ header
   .responsive-header-logo
     display: block
 
+  #container
+    padding-left: 0
+
+  .page-content
+    margin-left: 30px
 
 
 
