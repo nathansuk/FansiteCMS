@@ -10,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class TestController extends AbstractController{
 
     /**
-     * @Route("/", name="index")
+     * @Route("/test", name="rien")
      */
     public function sayHello(): Response
     {
