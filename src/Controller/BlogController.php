@@ -6,29 +6,30 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Entity\News;
+use App\Entity\Room;
 
 class BlogController extends AbstractController {
 
     /**
-     * @Route("/", name="index")
+     * @Route("/", name="home")
      */
+    public function home(): Response {
 
-    public function getNews(): Response {
-        $articles = $this->getDoctrine()
-                        ->getRepository(News::class)
-                        ->findAll();
-
-        // We get the last article by id as an array
-        $lastArticle = $this->getDoctrine()->getRepository(News::class)->findBy(array(), array('id' => 'DESC'), 4, 0);
-
-        if(!$articles){
-            throw $this->createNotFoundException('No article found');
-        }
+        $lastRoom = $this->getRoom();
+        $lastNews = $this->getNews();
 
         return $this->render('index.html.twig', [
-           'lastarticle' => $lastArticle
+            'lastroom' => $lastRoom,
+            'lastarticle' => $lastNews
         ]);
+    }
 
+    public function getNews(): array {
+        return $this->getDoctrine()->getRepository(News::class)->findBy(array(), array('id' => 'DESC'), 4, 0);
+    }
+
+    public function getRoom(): array {
+        return $this->getDoctrine()->getRepository(Room::class)->findBy(array(), array('id' => 'DESC'), 3, 0);
     }
 
 
