@@ -10,13 +10,14 @@ body
 
 /* CORE CONTAINER*/
 #container
-  border-radius: 10px 0 0 10px
-  width: 80%
+  width: 75%
   display: flex
   flex-direction: column
   padding-left: 50px
   padding-right: 50px
   color: white
+  position: absolute
+  right: 0px
 
 /** SIDE NAVIGATION PART STYLE (Will need refactor) **/
 
@@ -27,6 +28,7 @@ body
   height: 100vh
   background-color: menu.$menu-bg-color
   display: flex
+  position: fixed
   flex-direction: column
   border-radius: 0 10px 10px 0
 
@@ -179,7 +181,9 @@ header
   right: 100px
   top: 30px
 
+/* HOMEPAGE STYLE */
 
+/* ARTICLE MODULE */
 .index-news-list
   display: flex
   flex-direction: row
@@ -238,9 +242,75 @@ header
     position: relative
     top: 30%
 
+#btn-see-more-news
+  width: 100%
+  height: 50px
+  background-color: #494d64
+  text-align: center
+  border-radius: 10px
+  margin-top: 10px
+
+  a
+    color: white
+    text-decoration: none
+    position: relative
+    top: 30%
+
+
+.index-two-columns
+  display: flex
+  flex-direction: row
+
+.last-appartments
+  width: 60%
+  margin-right: 10px
+
+.appartment
+  width: 90%
+  height: 90px
+  display: flex
+  flex-direction: row
+  background-color: #494d64
+  border-radius: 10px
+  padding-left: 10px
+  padding-top: 10px
+  margin-bottom: 10px
+
+  #room-icon
+    width: 15%
+    height: 80%
+    border-radius: 10px
+    background-image: url('https://i.pinimg.com/originals/29/9e/8c/299e8c29e0623ec1b0ee74ad4b111f6d.png')
+    background-position-y: -300px
+    background-position-x: -100px
+    margin-right: 20px
+
+  a
+    color: white
+    text-decoration: none
+    position: relative
+    font-size: 2em
+    top: 75%
+    -ms-transform: translateY(-50%)
+    transform: translateY(-50%)
+
+  h2
+    margin: 0
+
+#room-desc
+    width: 75%
+
+.last-contest
+  width: 40%
+
 /* MEDIA QUERIES PART */
 
 @media screen and (max-width: 960px)
+
+  #container
+    width: 100%
+    margin-right: 30px
+    position: relative
 
   header
     #header-left-side
@@ -266,6 +336,21 @@ header
 
   .index-news-list
     flex-direction: column
+
+  .index-two-columns
+    flex-direction: column
+
+    .last-appartments
+      width: 100%
+      .appartment
+        width: 100%
+
+        a
+          margin-right: 10px
+    .last-contest
+      width: 100%
+
+
 
   #last-news
     width: 100%
