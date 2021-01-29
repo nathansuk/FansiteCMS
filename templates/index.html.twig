@@ -40,32 +40,16 @@
         <div class="last-appartments">
             <h1>Derniers appartements</h1>
 
-            <div class="appartment">
-                <div id="room-icon"></div>
-                <div id="room-desc">
-                    <h2>{{ lastroom[0].name }}</h2>
-                    <span id="room-slug">{{ lastroom[0].description }}</span>
+            {% for room in lastroom %}
+                <div class="appartment">
+                    <div id="room-icon"></div>
+                    <div id="room-desc">
+                        <h2>{{ room.name }}</h2>
+                        <span id="room-slug">{{ room.description }}</span>
+                    </div>
+                    <a href="#" id="gotoroom"><i class="fi-rr-angle-double-small-right"></i></a>
                 </div>
-                <a href="#" id="gotoroom"><i class="fi-rr-angle-double-small-right"></i></a>
-            </div>
-
-            <div class="appartment">
-                <div id="room-icon"></div>
-                <div id="room-desc">
-                    <h2>{{ lastroom[1].name }}</h2>
-                    <span id="room-slug">{{ lastroom[1].description }}</span>
-                </div>
-                <a href="#" id="gotoroom"><i class="fi-rr-angle-double-small-right"></i></a>
-            </div>
-
-            <div class="appartment">
-                <div id="room-icon"></div>
-                <div id="room-desc">
-                    <h2>{{ lastroom[2].name }}</h2>
-                    <span id="room-slug">{{ lastroom[2].description }}</span>
-                </div>
-                <a href="#" id="gotoroom"><i class="fi-rr-angle-double-small-right"></i></a>
-            </div>
+            {% endfor %}
 
             <div id="btn-see-more"><a href="#"> Voir tous nos appartements <i class="fi-rr-eye"></i>   </a></div>
         </div>
@@ -77,9 +61,31 @@
                 <div id="contest-info-img"></div>
             </div>
         </div>
-
     </div>
 
+    <h1>Flux City</h1>
+
+    <div class="flux-city">
+        {% for data in staffStream %}
+        <div class="box-flux">
+            <img src="https://www.habbo.com/habbo-imaging/avatarimage?user=lawrawrrr&direction=2&head_direction=2&gesture=agr&action=wlk,crr=33&size=l&format=.gif" alt="avatar" class="box-flux-avatar">
+            <div class="box-flux--desc">
+                <h2>{{ data.pseudo }}</h2>
+                <span>{{ data.rank }}</span>
+                <span>{{ data.date|date("d/m/Y") }}</span>
+            </div>
+            {% if data.type == 'QUIT' %}
+            <i class="fi-rr-arrow-down arrow-down"></i>
+            {% endif %}
+            {% if data.type == 'ARRIVAL' %}
+                <i class="fi-rr-arrow-up arrow-up"></i>
+            {% endif %}
+            {% if data.type == 'SWITCH' %}
+                <i class="fi-rr-rotate-right"></i>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
 
 
 {% endblock %}
