@@ -1,0 +1,39 @@
+@use 'vars' as global
+
+header
+  width: 100%
+  height: 100px
+  padding-top: 20px
+  display: flex
+  flex-direction: row
+
+  a
+    color: white
+    margin-left: 20px
+    font-size: 20px
+    text-decoration: none
+
+  .responsive-icon
+    display: none
+
+#search-bar-content
+  padding-left: 100px
+  input
+    width: 300px
+    height: 50px
+    border-radius: 10px
+    font-family: global.$font-family
+    background-color: #494d64
+    border: none
+    font-size: 1em
+    padding-left: 30px
+    color: white
+
+    &:focus
+      outline: none
+
+.responsive-header-logo
+  width: 120px
+  margin: auto
+  height: 50px
+  display: none

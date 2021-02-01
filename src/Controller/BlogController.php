@@ -8,9 +8,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Entity\News;
 use App\Entity\Room;
 use App\Entity\StaffStream;
+use App\Api;
 
 class BlogController extends AbstractController {
-
     /**
      * @Route("/", name="home")
      */
@@ -19,11 +19,13 @@ class BlogController extends AbstractController {
         $lastRoom = $this->getRoom();
         $lastNews = $this->getNews();
         $staffStream = $this->getStaffStream();
+        $avatar = $this->getLastForumPost();
 
         return $this->render('index.html.twig', [
             'lastroom' => $lastRoom,
             'lastarticle' => $lastNews,
-            'staffStream' => $staffStream
+            'staffStream' => $staffStream,
+            'avatar' => $avatar
         ]);
     }
 
@@ -39,8 +41,10 @@ class BlogController extends AbstractController {
         return $this->getDoctrine()->getRepository(StaffStream::class)->findBy(array(), array('id' => 'DESC'), 5, 0);
     }
 
+    public function getLastForumPost(): string{
+        $call = new Api('Leafron', 'Cr53Rcgt67');
+         if($call->getErreur() != null){ var_dump($call->getErreur()); }
 
-
-
-
+         return $call->getAvatar();
+    }
 }

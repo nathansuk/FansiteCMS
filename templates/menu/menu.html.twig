@@ -2,12 +2,14 @@
 
 {% block sidemenu %}
 
-<div class="side-menu">
+<div id="side-menu">
 
     <div class="side-menu-container">
 
+        <div class="top-menu">
         <img src="https://i.imgur.com/3cvomVt.png" class="menu-logo">
-
+        <button onclick="closeDiv()" id="button-close-menu"><i class="fi-rr-cross"></i></button>
+        </div>
     <!--
     <button class="menu-btn btn-login">Se connecter</button>
     <button class="menu-btn btn-register">S'inscrire</button>
@@ -15,6 +17,7 @@
     This will be active when connexion system will be made
     -->
         <div class="profile-menu-show">
+
             <div id="profile-pic"></div>
             <span id="photo-pseudo">Leafron Rien</span>
             <span id="photo-rank">Administrateur</span>
@@ -60,5 +63,11 @@
     </div>
 
 </div>
+
+    <script>
+        function closeDiv() {
+            document.getElementById('side-menu').style.display="none";
+        }
+    </script>
 
 {% endblock %}

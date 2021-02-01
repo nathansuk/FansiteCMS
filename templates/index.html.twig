@@ -68,7 +68,7 @@
     <div class="flux-city">
         {% for data in staffStream %}
         <div class="box-flux">
-            <img src="https://www.habbo.com/habbo-imaging/avatarimage?user=lawrawrrr&direction=2&head_direction=2&gesture=agr&action=wlk,crr=33&size=l&format=.gif" alt="avatar" class="box-flux-avatar">
+            <img src="https://api.habbocity.me/avatar_image.php?user={{ data.pseudo }}&headonly=0&direction=2&head_direction=2&size=l" alt="avatar" class="box-flux-avatar">
             <div class="box-flux--desc">
                 <h2>{{ data.pseudo }}</h2>
                 <span>{{ data.rank }}</span>
@@ -87,5 +87,5 @@
         {% endfor %}
     </div>
 
-
+ {{ avatar }}
 {% endblock %}

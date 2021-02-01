@@ -1,5 +1,6 @@
 @use 'vars' as global
-@use 'menu' as menu
+@import 'menu'
+@import "header"
 
 body
   background-color: global.$main-bg-color
@@ -18,168 +19,6 @@ body
   color: white
   position: absolute
   right: 0
-
-/** SIDE NAVIGATION PART STYLE (Will need refactor) **/
-
-.side-menu
-  color: global.$font-color
-  font-size: global.$font-size
-  width: 20%
-  height: 100vh
-  background-color: menu.$menu-bg-color
-  display: flex
-  position: fixed
-  flex-direction: column
-  border-radius: 0 10px 10px 0
-
-.side-menu-container
-  width: 80%
-  margin-left: auto
-  margin-right: auto
-  margin-top: 30px
-
-.menu-logo
-  width: 100px
-  height: 50px
-  margin-bottom: 50px
-
-/* Profile Part */
-.profile-menu-show
-  width: 100%
-  display: flex
-  flex-direction: column
-  text-align: center
-  margin-bottom: 50px
-
-#profile-pic
-  width: 90px
-  height: 90px
-  border-radius: 100%
-  /*Temporary*/
-  background-image: url('https://i.pinimg.com/originals/29/9e/8c/299e8c29e0623ec1b0ee74ad4b111f6d.png')
-  background-position-y: -300px
-  background-position-x: -100px
-  /* / Temporary*/
-  margin: auto
-
-#photo-pseudo
-  margin-top: 20px
-  font-size: 1.3em
-#photo-rank
-  font-size: 0.8em
-  color: #868585
-
-.user-purse-info
-  margin-top: 20px
-  width: 100%
-  display: flex
-  flex-direction: row
-  span
-    font-size: 0.9em
-    font-weight: 1
-    color: #7a7979
-hr
-  border:         none
-  border-left:    1px solid hsla(200, 10%, 50%,100)
-  height:         20px
-  width:          1px
-
-
-/* NAVIGATION PART */
-nav
-  ul
-    list-style-type: none
-    padding: 0
-  li
-    width: 100%
-    height: 50px
-    margin-bottom: 5px
-    border-radius: 5px
-    transition: ease-out 0.2s
-    display: flex
-    flex-direction: row
-
-    &:hover
-      cursor: pointer
-      background-color: menu.$li-hover-color
-      padding-left: 10px
-      transition: ease-in 0.2s
-
-  h3
-    color: lightgrey
-    font-weight: 1
-  a
-    position: relative
-    bottom: 5%
-    text-decoration: none
-    color: lightgrey
-    &:focus
-      color: white
-    &:hover
-      color: menu.$link-hover-color
-
-  i
-    margin-right: 10px
-
-
-  .li-content
-    position: relative
-    top: 30%
-
-button
-  font-family: global.$font-family
-  font-size: 0.9em
-  color: white
-
-button:hover
-  cursor: pointer
-
-button:focus
-  outline: 0
-
-/* HEADER PART */
-header
-  width: 100%
-  height: 100px
-  padding-top: 20px
-  display: flex
-  flex-direction: row
-
-  a
-    color: white
-    margin-left: 20px
-    font-size: 20px
-    text-decoration: none
-
-  .responsive-icon
-    display: none
-
-#search-bar-content
-  padding-left: 100px
-  input
-    width: 300px
-    height: 50px
-    border-radius: 10px
-    font-family: global.$font-family
-    background-color: #494d64
-    border: none
-    font-size: 1em
-    padding-left: 30px
-    color: white
-
-    &:focus
-      outline: none
-
-.responsive-header-logo
-  width: 120px
-  margin: auto
-  height: 50px
-  display: none
-
-#header-left-side
-  position: absolute
-  right: 100px
-  top: 30px
 
 /* HOMEPAGE STYLE */
 
@@ -366,12 +205,8 @@ header
     margin-right: 10px
     top: 30%
 
-
-
-
 /* MEDIA QUERIES PART */
 @media screen and (max-width: 960px)
-
   #container
     width: 100%
     margin-right: 30px
@@ -379,6 +214,7 @@ header
     padding-left: 0
     padding-right: 0
 
+  /* HEADER PART*/
   header
     #header-left-side
       right: 30px
@@ -387,9 +223,17 @@ header
       display: none
     .responsive-icon
       display: block
+    #button-show-menu
+      display: block
 
-  .side-menu
+  /* SIDE MNU PART */
+  #side-menu
     display: none
+    width: 100%
+    z-index: 9999
+
+  #button-close-menu
+    display: block
 
   .responsive-header-logo
     display: block
@@ -405,12 +249,21 @@ header
 
     .last-appartments
       width: 100%
+
       .appartment
         width: 100%
         a
           margin-right: 10px
     .last-contest
       width: 100%
+
+  .other-news
+    width: 100%
+  .flux-city
+    flex-direction: column
+  .box-flux
+    width: 100%
+    margin-bottom: 15px
 
   #last-news
     width: 100%
@@ -420,14 +273,6 @@ header
       width: 100%
       height: 205px
 
-  .other-news
-    width: 100%
-
-  .flux-city
-    flex-direction: column
-  .box-flux
-    width: 100%
-    margin-bottom: 15px
 
 
 

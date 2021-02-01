@@ -7,12 +7,7 @@
     <header>
 
         <!-- RESPONSIVE ZONE -->
-        <a href="javascript:void(0);" class="icon responsive-icon" onclick="">
-            <i class="fi-rr-align-left"></i>
-        </a>
-        <a href="javascript:void(0);" class="icon responsive-icon" onclick="">
-            <i class="fi-rr-zoom-in"></i>
-        </a>
+        <button onclick="showDiv()" id="button-show-menu"><i class="fi-rr-align-left"></i></button>
 
         <img src="https://i.imgur.com/3cvomVt.png" class="responsive-header-logo" alt="Logo">
         <!-- /RESPONSIVE ZONE -->
@@ -24,16 +19,12 @@
         </div>
 
         </div>
-
-        <div id="header-left-side">
-            <a href="javascript:void(0);" class="icon" onclick="">
-                <i class="fi-rr-following"></i>
-            </a>
-            <a href="javascript:void(0);" class="icon" onclick="">
-                <i class="fi-rr-paper-plane"></i>
-            </a>
-        </div>
     </header>
 
+    <script>
+        function showDiv() {
+            document.getElementById('side-menu').style.display = "block";
+        }
+    </script>
 
 {% endblock %}
