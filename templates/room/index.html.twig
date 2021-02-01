@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Fansite: Appartements!{% endblock %}
+
+{% block body %}
+
+<h1>Nos appartements</h1>
+<div class="roomlist">
+
+
+    {% for room in roomlist %}
+        <div class="room" style="background-image: url('{{ room.thumbnail }}');">
+                <div class="room--title">
+                        <h2>{{ room.name }}</h2>
+                </div>
+            <a href='http://habbocity.me/room/{{ room.cityid }}' class="btn-go-to-cityroom">
+                S'y rendre >>
+            </a>
+        </div>
+    {% endfor %}
+
+</div>
+{% endblock %}

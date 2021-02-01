@@ -1,5 +1,6 @@
 {% extends "base.html.twig" %}
 
+{% block title %}Fansite : Acceuil{% endblock%}
 {%  block body %}
 
     <h1>Actualité</h1>
@@ -51,7 +52,7 @@
                 </div>
             {% endfor %}
 
-            <div id="btn-see-more"><a href="#"> Voir tous nos appartements <i class="fi-rr-eye"></i>   </a></div>
+            <div id="btn-see-more"><a href="/room"> Voir tous nos appartements <i class="fi-rr-eye"></i>   </a></div>
         </div>
 
         <div class="last-contest">
@@ -86,6 +87,4 @@
         </div>
         {% endfor %}
     </div>
-
- {{ avatar }}
 {% endblock %}
