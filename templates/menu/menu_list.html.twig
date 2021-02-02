@@ -1,0 +1,8 @@
+{% for item in menu %}
+    <li>
+        <div class="li-content">
+            <i class="{{ item.icon }}"></i>
+            <a href="{{ item.link }}">{{ item.page }}</a>
+        </div>
+    </li>
+{% endfor %}

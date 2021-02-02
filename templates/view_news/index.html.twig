@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Fansite : {{ article.title|default('Les articles') }}!{% endblock %}
+
+{% block body %}
+    <div class="show-news-content">
+
+        {% if article %}
+
+        <div class="show-news">
+            <div class="article-thumbnail" style="background-image: url('{{ article.ImaageUrL}}')"></div>
+            <div class="article-content">
+                <h1>{{ article.title}}</h1>
+                <span>{{ article.content}}</span>
+            </div>
+        </div>
+
+            {% else %}
+                <div class="show-news show-news--error">
+                    <div class="article-content article-content--error">
+                        <img src="https://images.habbo.com/c_images/HabboWay/habboway_5a.png" />
+                        <h1>Oops !</h1>
+                        <span>L'article que tu essayes de chercher est introuvable.</span>
+                    </div>
+                </div>
+
+        {% endif %}
+
+        <div class="list-other-news">
+            {% for news in list %}
+                <div class="listed-news" style="background-image: url('{{ news.ImaageUrL }}');">
+                    <div id="listed-news-title"><h4>{{ news.title }}</h4></div>
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
+{% endblock %}

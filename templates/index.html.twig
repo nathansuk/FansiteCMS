@@ -7,7 +7,7 @@
 
     <div class="index-news-list">
 
-    <a href="#" id="last-news">
+    <a href="/news/{{ lastarticle[0].id }}" id="last-news" style="background-image: url('{{ lastarticle[0].ImaageUrL }}')">
             <div class="last-article-content">
            <div id="article-title">
              <span id="article-title-text">{{ lastarticle[0].title }} </span>
@@ -17,14 +17,14 @@
 
         <div class="other-news">
 
-            <a href="#" id="a-news">
+            <a href="/news/{{ lastarticle[1].id }}" id="a-news" style="background-image: url('{{ lastarticle[1].ImaageUrL }}')">
                 <div class="last-article-content">
                     <div id="article-title">
                         <span id="article-title-text">{{ lastarticle[1].title }} </span>
                     </div>
                 </div>
             </a>
-            <a href="#" id="a-news">
+            <a href="/news/{{ lastarticle[2].id }}" id="a-news" style="background-image: url('{{ lastarticle[2].ImaageUrL }}')">
                 <div class="last-article-content">
                     <div id="article-title">
                         <span id="article-title-text">{{ lastarticle[2].title }} </span>
@@ -35,7 +35,7 @@
 
     </div>
 
-    <div id="btn-see-more"><a href="#"> Voir plus de news... <i class="fi-rr-eye"></i>   </a></div>
+    <div id="btn-see-more"><a href="/news"> Voir plus de news... <i class="fi-rr-eye"></i>   </a></div>
 
     <div class="index-two-columns">
         <div class="last-appartments">
@@ -43,7 +43,7 @@
 
             {% for room in lastroom %}
                 <div class="appartment">
-                    <div id="room-icon"></div>
+                    <div id="room-icon" style="background-image: url('{{ room.thumbnail }}')"></div>
                     <div id="room-desc">
                         <h2>{{ room.name }}</h2>
                         <span id="room-slug">{{ room.description }}</span>
