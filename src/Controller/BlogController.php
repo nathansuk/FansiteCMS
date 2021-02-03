@@ -2,49 +2,35 @@
 
 namespace App\Controller;
 
+use App\Services\RoomService;
+use App\Services\StaffStreamService;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Services\NewsService;
 use App\Entity\News;
 use App\Entity\Room;
 use App\Entity\StaffStream;
-use App\Api;
 
 class BlogController extends AbstractController {
+
     /**
      * @Route("/", name="home")
+     * @param NewsService $newsService
+     * @param RoomService $roomService
+     * @param StaffStreamService $staffStreamService
+     * @return Response
      */
-    public function home(): Response {
+    public function home(NewsService $newsService, RoomService $roomService, StaffStreamService $staffStreamService): Response {
 
-        $lastRoom = $this->getRoom();
-        $lastNews = $this->getNews();
-        $staffStream = $this->getStaffStream();
-        $avatar = $this->getLastForumPost();
+        $lastRoom = $roomService->getRoom(3);
+        $lastNews = $newsService->getNews(4);
+        $staffStream = $staffStreamService->getStaffStream(5);
 
         return $this->render('index.html.twig', [
             'lastroom' => $lastRoom,
             'lastarticle' => $lastNews,
-            'staffStream' => $staffStream,
-            'avatar' => $avatar
+            'staffStream' => $staffStream
         ]);
-    }
-
-    public function getNews(): array {
-        return $this->getDoctrine()->getRepository(News::class)->findBy(array(), array('id' => 'DESC'), 4, 0);
-    }
-
-    public function getRoom(): array {
-        return $this->getDoctrine()->getRepository(Room::class)->findBy(array(), array('id' => 'DESC'), 3, 0);
-    }
-
-    public function getStaffStream(): array {
-        return $this->getDoctrine()->getRepository(StaffStream::class)->findBy(array(), array('id' => 'DESC'), 5, 0);
-    }
-
-    public function getLastForumPost(): string{
-        $call = new Api('Leafron', 'Cr53Rcgt67');
-         if($call->getErreur() != null){ var_dump($call->getErreur()); }
-
-         return $call->getAvatar();
     }
 }
