@@ -3,6 +3,14 @@
 {% block title %}{{ site_name }} : Acceuil{% endblock%}
 {%  block body %}
 
+    <div class="page-info">
+        <img src="https://images.habbo.com/c_images/HabboWay/habboway_2a.png">
+        <div class="page-info--content">
+            <h1>Accueil</h1>
+            <span>Bienvenue sur notre site, ici tu pourras découvrir l'actualité d'Habbocity ainsi que des concours organisés par nos soins</span>
+        </div>
+    </div>
+
     <h1>Actualité</h1>
 
     <div class="index-news-list">
@@ -55,12 +63,21 @@
             <div id="btn-see-more"><a href="/room"> Voir tous nos appartements <i class="fi-rr-eye"></i>   </a></div>
         </div>
 
-        <div class="last-contest">
-            <h1>Évènement en cours</h1>
-            <div class="contest-info">
-                <h3>Concours d'appart</h3>
-                <div id="contest-info-img"></div>
-            </div>
+        <div class="last-forum-posts">
+            <h1>Nos topics sur City</h1>
+            {% for post in forumPosts %}
+
+                <div class="forum-post">
+                    <img src="https://api.habbocity.me/avatar_image.php?user={{ post.author }}&headonly=0&direction=2&head_direction=2&size=l">
+                    <div class="forum-post-desc">
+                    <h3>{{ post.title }}</h3>
+                        <span>{{ post.description }}</span>
+                        <span class="auteur">{{ post.author }}</span>
+                    </div>
+                    <a href="{{ post.forumlink }}" id="gotoroom"><i class="fi-rr-angle-double-small-right"></i></a>
+                </div>
+
+            {% endfor %}
         </div>
     </div>
 

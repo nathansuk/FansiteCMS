@@ -4,7 +4,14 @@
 
 {%  block body %}
 
-<h1>Toute notre actualité</h1>
+    <div class="page-info">
+        <img src="https://2img.net/h/vpictu.re/uploads/fd6d6915956642852067f26bce6860555555ac05.gif">
+        <div class="page-info--content">
+            <h1>Toute notre actualité</h1>
+            <span>Ici tu pourras consulter la liste de nos derniers articles parus concernant l'actualité sur Habbocity et sur {{ site_name }}</span>
+        </div>
+    </div>
+
    <a href="/news/{{ newsarray[0].id }}" id="list--last-news">
 
     <div class="last-news--box" style="background-image: url('{{ newsarray[0].ImaageUrL }}')">
