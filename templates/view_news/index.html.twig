@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Fansite : {{ article.title|default('Les articles') }}!{% endblock %}
+{% block title %}{{ site_name }} : {{ article.title|default('Les articles') }}!{% endblock %}
 
 {% block body %}
     <div class="show-news-content">

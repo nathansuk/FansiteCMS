@@ -1,11 +1,39 @@
 {% extends "base.html.twig" %}
 
+{% block title %} {{ site_name }} : L'actualité{% endblock %}
 
 {%  block body %}
 
+<h1>Toute notre actualité</h1>
+   <a href="/news/{{ newsarray[0].id }}" id="list--last-news">
 
-    {% for news in newsarray %}
-        <h1>{{ news.title }}</h1>
-    {% endfor %}
+    <div class="last-news--box" style="background-image: url('{{ newsarray[0].ImaageUrL }}')">
+
+        <div class="last-article-content">
+            <div id="article-title">
+                <span id="article-title-text">{{ newsarray[0].title }} </span>
+            </div>
+        </div>
+
+    </div>
+
+       <div class="list--all-news">
+
+           {% for news in newsarray[1:] %}
+
+               <div class="all-news--item" style="background-image: url({{ news.ImaageUrL }})">
+                   <div class="last-article-content">
+                   <div id="article-title">
+                       <span id="article-title-text">{{ news.title }} </span>
+                   </div>
+                   </div>
+               </div>
+
+           {% endfor %}
+
+
+       </div>
+
+   </a>
 
 {% endblock %}
