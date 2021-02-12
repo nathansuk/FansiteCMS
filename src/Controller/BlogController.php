@@ -9,9 +9,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use App\Services\NewsService;
-use App\Entity\News;
-use App\Entity\Room;
-use App\Entity\StaffStream;
 
 class BlogController extends AbstractController {
 

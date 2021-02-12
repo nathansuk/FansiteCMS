@@ -19,11 +19,19 @@
      {{ block('header', "components/global/header.html.twig") }}
 
         <div class="page-content">
+
+            <div class="overlay" id="overlay"></div>
+            <div class="modal" id="modal">
+                <button class="modal-close-btn" id="close-btn"><i class="fi-rr-cross-small"></i></button>
+            </div>
+
         {% block body %}
-            
+
+
         {% endblock %}
         </div>
 
     </div>
     </body>
+<script src="/assets/js/app.js"></script>
 </html>
