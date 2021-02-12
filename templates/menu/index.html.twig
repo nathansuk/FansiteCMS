@@ -10,26 +10,29 @@
                 <img src="/assets/imgs/3cvomVt.png" class="menu-logo">
                 <button onclick="closeDiv()" id="button-close-menu"><i class="fi-rr-cross"></i></button>
             </div>
-
-            <div class="menu-auth-btn">
-            <button class="menu-btn btn-login" id="btn-modal">Se connecter</button>
-            </div>
             <!-- MODAL ZONE-->
 
-            <!-- <div class="profile-menu-show">
+            {% if app.user %}
+            <div class="profile-menu-show">
 
                 <div id="profile-pic"></div>
-                <span id="photo-pseudo">Leafron</span>
+                <span id="photo-pseudo">{{ app.user.username }}</span>
                 <span id="photo-rank">Administrateur</span>
+                <span><a href="/logout">Déconnexion</a></span>
 
                 <div class="user-purse-info">
-                    <div class="purse-info">1000 <span>gagnées</span></div>
+                    <div class="purse-info">{{ app.user.points }} <span>points</span></div>
                     <hr>
                     <div class="purse-info">1000 <span>gagnées</span></div>
                     <hr>
                     <div class="purse-info">1000 <span>gagnées</span></div>
                 </div>
-            </div> -->
+            </div>
+                {% else %}
+                    <div class="menu-auth-btn">
+                        <button class="menu-btn btn-login" id="btn-modal">Se connecter</button>
+                    </div>
+        {% endif %}
 
             <nav>
                 <ul>

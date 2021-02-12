@@ -23,7 +23,9 @@ class User implements UserInterface
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=180, unique=true)
+     * @ORM\Column(type="string", unique=true)
+     * @Assert\Length(min="3", minMessage="Votre nom d'utilisateur doit faire plus de 3 caractères")
+     * @Assert\Length(max="32", maxMessage="Votre nom d'utilisateur ne doit pas faire plus de 32 caractères")
      */
     private $username;
 
