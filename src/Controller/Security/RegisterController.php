@@ -21,6 +21,8 @@ class RegisterController extends AbstractController
      * @param Request $request
      * @param EntityManagerInterface $entityManager
      * @param UserPasswordEncoderInterface $passwordEncoder
+     * @param LoginAuthenticator $loginAuthenticator
+     * @param GuardAuthenticatorHandler $guardAuthenticatorHandler
      * @return Response
      */
     public function registration(Request $request, EntityManagerInterface $entityManager, UserPasswordEncoderInterface $passwordEncoder, LoginAuthenticator $loginAuthenticator, GuardAuthenticatorHandler $guardAuthenticatorHandler): Response
