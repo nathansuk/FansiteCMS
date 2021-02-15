@@ -18,7 +18,7 @@
                 <div id="profile-pic"></div>
                 <span id="photo-pseudo">{{ app.user.username }}</span>
                 <span id="photo-rank">Administrateur</span>
-                <span><a href="/logout">Déconnexion</a></span>
+                <a href="/logout" class="menu--btn"><span>Déconnexion</span></a>
 
                 <div class="user-purse-info">
                     <div class="purse-info">{{ app.user.points }} <span>points</span></div>
@@ -30,7 +30,8 @@
             </div>
                 {% else %}
                     <div class="menu-auth-btn">
-                        <button class="menu-btn btn-login" id="btn-modal">Se connecter</button>
+                        <a href="/login" class="menu--btn"><span>Se connecter</span></a>
+                        <a href="/register" class="menu--btn"><span>S'inscrire</span></a>
                     </div>
         {% endif %}
 

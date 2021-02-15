@@ -11,7 +11,7 @@
             <div class="article-thumbnail" style="background-image: url('{{ article.ImaageUrL}}')"></div>
             <div class="article-content">
                 <h1>{{ article.title}}</h1>
-                <span>{{ article.content}}</span>
+                <span>{{ article.content|raw }}</span>
             </div>
         </div>
 

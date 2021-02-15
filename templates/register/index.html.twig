@@ -2,10 +2,16 @@
 
 {% block body %}
 <h1>S'inscrire</h1>
+    <div class="registration--content">
+
     {{ form_start(register_form) }}
     {{ form_widget(register_form) }}
     <button type="submit" class="btn btn-primary">M'inscrire</button>
     {{ form_end(register_form) }}
+
+        <img src="https://images.habbo.com/habbo-web/america/fr/assets/images/teaser_registration.d401d183.png">
+
+    </div>
 
 {% endblock %}
 

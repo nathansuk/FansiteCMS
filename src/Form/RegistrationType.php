@@ -15,10 +15,42 @@ class RegistrationType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('username')
-            ->add('email', EmailType::class)
-            ->add('password', PasswordType::class)
-            ->add('confirm_password', PasswordType::class)
+            ->add('username', TextType::class, [
+                'label' => 'Pseudo',
+                'attr' => [
+                    'placeholder' => 'Pseudo'
+                ],
+                'row_attr' => [
+                    'class' => 'form--block'
+                ]
+            ])
+            ->add('email', EmailType::class, [
+                'label' => 'Adresse mail',
+                'attr' => [
+                    'placeholder' => 'Renseigne une adresse mail valide !'
+                ],
+                'row_attr' => [
+                    'class' => 'form--block'
+                ]
+            ])
+            ->add('password', PasswordType::class, [
+                'label' => 'Mot de passe',
+                'attr' => [
+                    'placeholder' => 'Utilise un mot de passe sécurisé !'
+                ],
+                'row_attr' => [
+                    'class' => 'form--block'
+                ]
+            ])
+            ->add('confirm_password', PasswordType::class, [
+                'label' => 'Confirmation du mot de passe',
+                'attr' => [
+                    'placeholder' => 'Confirme le mot de passe'
+                ],
+                'row_attr' => [
+                    'class' => 'form--block'
+                ]
+            ])
         ;
     }
 

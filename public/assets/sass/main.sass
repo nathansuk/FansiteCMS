@@ -1,6 +1,7 @@
 @use 'vars' as global
 @import 'menu'
 @import "header"
+@import "forms"
 
 body
   background-color: global.$main-bg-color
@@ -8,6 +9,7 @@ body
   margin: 0
   display: flex
   flex-direction: row
+  image-rendering: pixelated
 
 a
   color: white
@@ -296,6 +298,9 @@ a
   background-size: cover
   image-rendering: pixelated !important
 
+.article-content
+  padding: 15px
+
 .list-other-news
   width: 30%
   margin-left: 10px
@@ -352,6 +357,7 @@ a
     border-radius: 20px
     transition: ease-in 0.2s
     background-size: cover
+    margin-bottom: 10px
 
     &:hover
       transition: ease-in 0.2s
@@ -405,6 +411,7 @@ a
 
   .page-content
     margin-left: 30px
+    padding-right: 20px
 
   .index-news-list
     flex-direction: column
@@ -450,6 +457,7 @@ a
     margin-left: 0
 
   .list--all-news
+    flex-direction: column
     .all-news--item
       width: 100%
 

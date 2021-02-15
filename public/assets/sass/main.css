@@ -156,7 +156,7 @@ hr {
 .menu-auth-btn {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 100%;
   margin: auto;
 }
 .menu-auth-btn .menu-btn {
@@ -168,11 +168,25 @@ hr {
 .menu-auth-btn .menu-btn:focus {
   outline: none;
 }
-.menu-auth-btn .btn-login {
-  background-color: #088c69;
+
+.menu--btn {
+  width: 100%;
+  height: 50px;
+  background-color: #4e566d;
+  transition: linear 0.2s;
+  border-radius: 20px 0 20px 0;
+  margin-top: 10px;
+  text-align: center;
 }
-.menu-auth-btn .btn-register {
-  background-color: #B0413E;
+.menu--btn:hover {
+  border-radius: 0 20px 0 20px;
+  transition: linear 0.2s;
+  background-color: #ff9f43;
+}
+.menu--btn span {
+  position: relative;
+  top: 28%;
+  transform: translateY(50%);
 }
 
 /* NAVIGATION PART */
@@ -280,12 +294,78 @@ header .responsive-icon {
   display: none;
 }
 
+/* GLOBAL VARIABLES */
+.registration--content {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.registration--content form {
+  width: 100%;
+}
+.registration--content form input::placeholder {
+  color: #a9a8a8;
+  font-style: italic;
+}
+.registration--content button {
+  font-family: "Ubuntu Condensed", "sans-serif";
+  font-size: 1em;
+  width: 100%;
+  height: 50px;
+  border-radius: 10px;
+  transition: ease-in 0.2s;
+  background-color: #4e566d;
+  margin-left: 0;
+  margin-bottom: 20px;
+}
+.registration--content button:hover {
+  transition: ease-in 0.2s;
+  background-color: #ffbd69;
+}
+.registration--content button:focus {
+  outline: none;
+}
+
+.form--block {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+.form--block ul {
+  margin-bottom: 5px;
+  margin-top: 5px;
+  list-style: outside none none;
+  color: #ef476f;
+}
+.form--block label {
+  margin-bottom: 10px;
+}
+.form--block input {
+  height: 50px;
+  background-color: #4e566d;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-family: "Ubuntu Condensed", "sans-serif";
+  font-size: 1em;
+  padding-left: 10px;
+}
+.form--block input:focus {
+  outline: none;
+}
+
+@media screen and (max-width: 960px) {
+  .registration--content {
+    flex-direction: column;
+  }
+}
 body {
   background-color: #3C3F51;
   font-family: "Ubuntu Condensed", "sans-serif";
   margin: 0;
   display: flex;
   flex-direction: row;
+  image-rendering: pixelated;
 }
 
 a {
@@ -604,6 +684,10 @@ a {
   image-rendering: pixelated !important;
 }
 
+.article-content {
+  padding: 15px;
+}
+
 .list-other-news {
   width: 30%;
   margin-left: 10px;
@@ -665,6 +749,7 @@ a {
   border-radius: 20px;
   transition: ease-in 0.2s;
   background-size: cover;
+  margin-bottom: 10px;
 }
 .list--all-news .all-news--item:hover {
   transition: ease-in 0.2s;
@@ -727,6 +812,7 @@ a {
 
   .page-content {
     margin-left: 30px;
+    padding-right: 20px;
   }
 
   .index-news-list {
@@ -786,6 +872,9 @@ a {
     margin-left: 0;
   }
 
+  .list--all-news {
+    flex-direction: column;
+  }
   .list--all-news .all-news--item {
     width: 100%;
   }
