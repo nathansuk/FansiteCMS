@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="/assets/uicons/css/uicons-regular-rounded.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="shortcut icon" href="https://images.habbo.com/habbo-web/america/en/assets/images/favicon.08c747be.ico">
         <title>{% block title %}{{ site_name }} :{% endblock %}</title>
         {% block stylesheets %}
@@ -31,11 +32,6 @@
      {{ block('header', "components/global/header.html.twig") }}
 
         <div class="page-content">
-
-            <div class="overlay" id="overlay"></div>
-            <div class="modal" id="modal">
-                <button class="modal-close-btn" id="close-btn"><i class="fi-rr-cross-small"></i></button>
-            </div>
 
         {% block body %}
 

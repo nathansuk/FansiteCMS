@@ -4,7 +4,7 @@
 {%  block body %}
 
     <div class="page-info">
-        <img src="https://images.habbo.com/c_images/HabboWay/habboway_2a.png">
+        <img src="https://images.habbo.com/c_images/HabboWay/habboway_2a.png" alt="Page Info Image">
         <div class="page-info--content">
             <h1>Accueil</h1>
             <span>Bienvenue sur notre site, ici tu pourras découvrir l'actualité d'Habbocity ainsi que des concours organisés par nos soins</span>
@@ -25,21 +25,21 @@
 
         <div class="other-news">
 
-            <a href="/news/{{ lastarticle[1].id }}" id="a-news" style="background-image: url('{{ lastarticle[1].ImaageUrL }}')">
+            <a href="/news/{{ lastarticle[1].id }}" class="a-news" style="background-image: url('{{ lastarticle[1].ImaageUrL }}')">
                 <div class="last-article-content">
                     <div id="article-title">
                         <span id="article-title-text">{{ lastarticle[1].title }} </span>
                     </div>
                 </div>
             </a>
-            <a href="/news/{{ lastarticle[2].id }}" id="a-news" style="background-image: url('{{ lastarticle[2].ImaageUrL }}')">
+            <a href="/news/{{ lastarticle[2].id }}" class="a-news" style="background-image: url('{{ lastarticle[2].ImaageUrL }}')">
                 <div class="last-article-content">
                     <div id="article-title">
                         <span id="article-title-text">{{ lastarticle[2].title }} </span>
                     </div>
                 </div>
             </a>
-            <a href="/news/{{ lastarticle[3].id }}" id="a-news" style="background-image: url('{{ lastarticle[3].ImaageUrL }}')">
+            <a href="/news/{{ lastarticle[3].id }}" class="a-news" style="background-image: url('{{ lastarticle[3].ImaageUrL }}')">
                 <div class="last-article-content">
                     <div id="article-title">
                         <span id="article-title-text">{{ lastarticle[3].title }} </span>
@@ -63,7 +63,7 @@
                         <h2>{{ room.name }}</h2>
                         <span id="room-slug">{{ room.description }}</span>
                     </div>
-                    <a href="#" id="gotoroom"><i class="fi-rr-angle-double-small-right"></i></a>
+                    <a href="#" class="gotoroom"><i class="fi-rr-angle-double-small-right"></i></a>
                 </div>
             {% endfor %}
 
@@ -75,13 +75,13 @@
             {% for post in forumPosts %}
 
                 <div class="forum-post">
-                    <img src="https://api.habbocity.me/avatar_image.php?user={{ post.author }}&headonly=0&direction=2&head_direction=2&size=l">
+                    <img src="https://api.habbocity.me/avatar_image.php?user={{ post.author }}&headonly=0&direction=2&head_direction=2&size=l" alt="Auteur du topic">
                     <div class="forum-post-desc">
                     <h3>{{ post.title }}</h3>
                         <span>{{ post.description }}</span>
                         <span class="auteur">{{ post.author }}</span>
                     </div>
-                    <a href="{{ post.forumlink }}" id="gotoroom"><i class="fi-rr-angle-double-small-right"></i></a>
+                    <a href="{{ post.forumlink }}" class="gotoroom"><i class="fi-rr-angle-double-small-right"></i></a>
                 </div>
 
             {% endfor %}
