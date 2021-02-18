@@ -2,9 +2,13 @@
 
 namespace App\Controller;
 
+use App\Entity\Comments;
 use App\Entity\News;
+use App\Form\CommentsType;
 use App\Services\NewsService;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -16,15 +20,36 @@ class ViewNewsController extends AbstractController
      * @param NewsService $newsService
      * @return Response
      */
-    public function show(int $id, NewsService $newsService): Response {
+    public function show(int $id, NewsService $newsService, Request $request, EntityManagerInterface $entityManager): Response {
 
         $article = $this->getDoctrine()->getRepository(News::class)->find($id);
+        $comments_list = $this->getDoctrine()->getRepository(Comments::class)->findBy(['articleId' => $id], ['createdAt' => 'ASC']);
+
+        $comment = new Comments();
+        $comment_form = $this->createForm(CommentsType::class, $comment);
+        $comment_form->handleRequest($request);
+
+        if($comment_form->isSubmitted() && $comment_form->isValid()){
+
+            $comment->setAuthor($this->getUser()->getUsername())
+                ->setCreatedAt(new \DateTime("now"))
+                ->setArticleId($article);
+
+            $entityManager->persist($comment);
+            $entityManager->flush();
+
+            $this->redirect("/news/".$id."");
+
+        }
+
 
         $list = $newsService->getNews(10);
         
         return $this->render('view_news/index.html.twig', [
             'article' => $article,
-            'list' => $list
+            'list' => $list,
+            'comments' => $comments_list,
+            'comment_form' => $comment_form->createView()
         ]);
     }
 

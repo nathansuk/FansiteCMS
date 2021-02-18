@@ -7,6 +7,7 @@
 
         {% if article %}
 
+            <div class="news-page--content">
         <div class="show-news">
             <div class="article-thumbnail" style="background-image: url('{{ article.ImaageUrL}}')"></div>
             <div class="article-content">
@@ -14,6 +15,27 @@
                 <span>{{ article.content|raw }}</span>
             </div>
         </div>
+
+                {% if app.user %}
+                    <div class="comment-form">
+                    {{ form_start(comment_form) }}
+                    {{ form_widget(comment_form) }}
+                    <button type="submit" class="btn btn-primary">Commenter</button>
+                    {{ form_end(comment_form) }}
+                    </div>
+                {% endif %}
+
+            {% for comment in comments|reverse %} <!-- lel dunno why this doesnt work in php meh -->
+                <div class="comment-item">
+                    <img src="https://api.habbocity.me/avatar_image.php?user={{ comment.author }}&headonly=0&direction=2&head_direction=2&size=l" alt="Comment's author" class="comments-author--avatar">
+                    <div class="comment-item--details">
+                    <h3>{{ comment.author }}</h3>
+                    <span>{{ comment.content }}</span>
+                    </div>
+                </div>
+            {% endfor %}
+
+            </div>
 
             {% else %}
                 <div class="show-news show-news--error">
@@ -25,6 +47,7 @@
                 </div>
 
         {% endif %}
+
 
         <div class="list-other-news">
             {% for news in list %}

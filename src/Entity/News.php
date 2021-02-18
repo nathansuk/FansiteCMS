@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\NewsRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -46,6 +48,16 @@ class News
      * @ORM\Column(type="string", length=255)
      */
     private $imaage_urL;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Comments::class, mappedBy="articleId", orphanRemoval=true)
+     */
+    private $comments;
+
+    public function __construct()
+    {
+        $this->comments = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -122,5 +134,39 @@ class News
         $this->imaage_urL = $imaage_urL;
 
         return $this;
+    }
+
+    /**
+     * @return Collection|Comments[]
+     */
+    public function getComments(): Collection
+    {
+        return $this->comments;
+    }
+
+    public function addComment(Comments $comment): self
+    {
+        if (!$this->comments->contains($comment)) {
+            $this->comments[] = $comment;
+            $comment->setArticleId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeComment(Comments $comment): self
+    {
+        if ($this->comments->removeElement($comment)) {
+            // set the owning side to null (unless already changed)
+            if ($comment->getArticleId() === $this) {
+                $comment->setArticleId(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function __toString() {
+        return $this->title;
     }
 }
