@@ -1,0 +1,59 @@
+.playlist-container
+  width: 100%
+  display: flex
+  flex-direction: row
+  height: 200px
+  margin-bottom: 20px
+
+.playlist-show
+  width: 60%
+  border-radius: 10px 0 0 10px
+  div
+    text-align: center
+    position: relative
+    top: 40%
+    -ms-transform: translateY(-50%)
+    transform: translateY(-50%)
+    h1
+      margin-bottom: 5px
+
+.playlist-video-list
+  display: flex
+  flex-direction: column
+  width: 40%
+  height: 200px
+  transition: ease-out 0.2s
+  background-color: #4c5367
+  border-radius: 0 10px 10px 0
+  overflow: scroll
+  overflow-x: hidden
+
+.video--details
+  display: flex
+  flex-direction: row
+  border-radius: 10px
+  img
+    width: 60px
+    height: 100px
+  h3
+    margin-bottom: 3px
+  h4
+    margin-top: 3px
+
+  &:hover
+    cursor: pointer
+    transition: ease-in 0.2s
+    background-color: #636d86
+
+
+@media screen and (max-width: 960px)
+  .playlist-container
+    flex-direction: column
+    height: 300px
+  .playlist-show
+    width: 100%
+    border-radius: 10px 10px 0 0
+  .playlist-video-list
+    width: 100%
+    height: 500px
+    border-radius: 0 0 10px 10px

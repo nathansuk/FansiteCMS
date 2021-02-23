@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello VideoController!{% endblock %}
+
+{% block body %}
+
+    {% for playlist in playlists %}
+
+        <div class="playlist-container">
+            <div class="playlist-show" style="background-image: url({{ playlist.image }}); background-size: cover;">
+                <div>
+                    <h1>{{ playlist.title }}</h1>
+                    <h2>{{ playlist.description }}</h2>
+                </div>
+            </div>
+
+            <div class="playlist-video-list">
+            {% for video in playlist.videos %}
+                <div class="video--details">
+                    <img src="https://api.habbocity.me/avatar_image.php?user={{ video.author }}&headonly=1&direction=2&head_direction=2&size=l" alt="Videos author">
+                    <div>
+                    <h3>{{ video.title }}</h3>
+                    <h4>{{ video.description }}</h4>
+                    </div>
+                </div>
+             {% endfor %}
+            </div>
+
+        </div>
+    {% endfor %}
+
+{% endblock %}
