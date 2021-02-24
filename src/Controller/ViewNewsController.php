@@ -18,15 +18,20 @@ class ViewNewsController extends AbstractController
      * @Route("/news/{id}", name="view_news")
      * @param int $id
      * @param NewsService $newsService
+     * @param Request $request
+     * @param EntityManagerInterface $entityManager
      * @return Response
      */
     public function show(int $id, NewsService $newsService, Request $request, EntityManagerInterface $entityManager): Response {
 
         $article = $this->getDoctrine()->getRepository(News::class)->find($id);
         $comments_list = $this->getDoctrine()->getRepository(Comments::class)->findBy(['articleId' => $id], ['createdAt' => 'ASC']);
-
         $comment = new Comments();
-        $comment_form = $this->createForm(CommentsType::class, $comment);
+        $comment_form = $this->createForm(CommentsType::class, $comment, array(
+            'antispam_time'     => true,
+            'antispam_time_min' => 10,
+            'antispam_time_max' => 60,
+        ));
         $comment_form->handleRequest($request);
 
         if($comment_form->isSubmitted() && $comment_form->isValid()){
@@ -38,7 +43,9 @@ class ViewNewsController extends AbstractController
             $entityManager->persist($comment);
             $entityManager->flush();
 
-            $this->redirect("/news/".$id."");
+            $this->addFlash('success', 'Message enregistré');
+
+            $this->redirectToRoute('view_news', ['id' => $id]);
 
         }
 

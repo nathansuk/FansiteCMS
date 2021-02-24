@@ -9,8 +9,8 @@
   top: 10px;
   left: 0;
   right: 0;
-  max-width: 600px;
-  height: 700px;
+  max-width: 800px;
+  height: 400px;
   z-index: 2;
   margin: auto;
   padding: 30px;
@@ -918,6 +918,38 @@ a {
 .comment-form button:hover {
   transition: ease-in 0.2s;
   background-color: #636d88;
+}
+
+.alert-success {
+  width: 100%;
+  margin-top: 20px;
+  height: 80px;
+  text-align: center;
+  background-color: #1ea471;
+  border-radius: 10px;
+}
+.alert-success a {
+  text-decoration: underline;
+}
+.alert-success span {
+  position: relative;
+  top: 40%;
+  transform: translateY(-50%);
+}
+
+#comments ul {
+  margin-top: 0;
+  margin-bottom: 15px;
+  height: 80px;
+  border-radius: 10px;
+  background-color: #e84118;
+  list-style: none;
+}
+#comments li {
+  text-align: center;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 /* MEDIA QUERIES PART */

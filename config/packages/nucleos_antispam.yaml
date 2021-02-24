@@ -1,0 +1,6 @@
+nucleos_antispam:
+  # Time protection
+  time:
+    min: 5
+    max: 3600
+    global: false

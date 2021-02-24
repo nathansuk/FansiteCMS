@@ -17,6 +17,11 @@
         </div>
 
                 {% if app.user %}
+                    {% for message in app.flashes('success') %}
+                        <div class="alert-success">
+                            <span>{{ message }} <a href="/news/{{ article.id }}">Actualiser</a> </span>
+                        </div>
+                    {% endfor %}
                     <div class="comment-form">
                     {{ form_start(comment_form) }}
                     {{ form_widget(comment_form) }}
