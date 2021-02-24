@@ -19,23 +19,43 @@ a
   color: white
   text-decoration: none
 
+.w-100
+  width: 100%
+
+.flx-row
+  display: flex
+  flex-direction: row
+
+.flx-column
+  display: flex
+  flex-direction: column
+
+.skewed-box
+  border-radius: 50px 0 50px 0
+
 /* CORE CONTAINER*/
 #container
   width: 75%
   display: flex
   flex-direction: column
-  padding-left: 50px
-  padding-right: 50px
+  padding: 0 50px 50px 50px
   color: white
   position: absolute
   right: 0
 
-/* HOMEPAGE STYLE */
+/* HEAD STYLE */
 
-/* ARTICLE MODULE */
-.index-news-list
+.page-info
+  width: 100%
+  height: 170px
+  border-radius: 50px 0 50px 0
+  background-color: global.$main-box-color
   display: flex
   flex-direction: row
+  img
+    margin-right: 30px
+
+/* ARTICLE MODULE */
 
 #last-news
   width: 60%
@@ -51,11 +71,8 @@ a
 
 .other-news
   width: 40%
-  display: flex
-  flex-direction: column
 
 .a-news
-  width: 100%
   height: 100px
   background-size: cover
   margin-bottom: 10px
@@ -66,7 +83,6 @@ a
     transition: ease-in 0.2s
 
 .last-article-content
-  width: 100%
   height: 100%
   display: flex
   flex-direction: column-reverse
@@ -89,9 +105,8 @@ a
     top: 30%
 
 #btn-see-more
-  width: 100%
   height: 50px
-  background-color: #494d64
+  background-color: global.$main-box-color
   text-align: center
   border-radius: 10px
   margin-top: 10px
@@ -104,21 +119,13 @@ a
     position: relative
     top: 30%
 
-
-.index-two-columns
-  display: flex
-  flex-direction: row
-
 .last-appartments
   width: 60%
   margin-right: 20px
 
 .appartment
-  width: 100%
   height: 90px
-  display: flex
-  flex-direction: row
-  background-color: #494d64
+  background-color: global.$main-box-color
   border-radius: 10px
   padding-left: 10px
   padding-top: 10px
@@ -155,11 +162,8 @@ a
   width: 40%
 
 .forum-post
-  display: flex
-  flex-direction: row
-  background-color: #494d64
+  background-color: global.$main-box-color
   border-radius: 10px
-  width: 100%
   height: 120px
   margin-bottom: 10px
   transition: ease-in 0.2s
@@ -170,8 +174,6 @@ a
 
   .forum-post-desc
     width: 80%
-    display: flex
-    flex-direction: column
     h3
       margin-bottom: 5px
     .auteur
@@ -189,20 +191,12 @@ a
     transform: translateY(-50%)
 
 
-.flux-city
-  width: 100%
-  display: flex
-  flex-direction: row
-
 .box-flux
   height: 150px
   width: 20%
   border-radius: 10px
-  background-color: #494d64
+  background-color: global.$main-box-color
   margin-right: 15px
-  display: flex
-  flex-direction: row
-
   h1
     margin-bottom: 10px
 
@@ -213,9 +207,6 @@ a
 
   .box-flux--desc
     width: 55%
-    display: flex
-    flex-direction: column
-
   .fi-rr-arrow-down
     color: #ef476f
   .fi-rr-arrow-up
@@ -228,13 +219,10 @@ a
     margin-right: 10px
     top: 30%
 
-
+/*ROOM PAGE */
 .roomlist
-  width: 100%
-
   .room
     background-size: cover
-    width: 100%
     height: 150px
     border-radius: 10px
     margin-bottom: 20px
@@ -274,33 +262,24 @@ a
   margin-right: 20px
   border-radius: 10px
 
-.show-news-content
-  width: 100%
-  display: flex
-  flex-direction: row
-
+/* / ROOM PAGE */
 .show-news
-  width: 100%
   height: 400px
-  background-color: #494d64
+  background-color: global.$main-box-color
   border-radius: 10px
 
 .show-news--error
   text-align: center
-  img
-    image-rendering: pixelated !important
 
   .article-content--error
     position: relative
     top: 10%
 
 .article-thumbnail
-  width: 100%
   margin: auto
   height: 200px
   border-radius: 5px
   background-size: cover
-  image-rendering: pixelated !important
 
 .article-content
   padding: 15px
@@ -310,7 +289,6 @@ a
   margin-left: 10px
 
 .listed-news
-  width: 100%
   height: 100px
   margin-bottom: 10px
   background-size: cover
@@ -334,10 +312,8 @@ a
       margin: 0
 
 #list--last-news
-  width: 100%
   .last-news--box
     margin-top: 20px
-    width: 100%
     height: 300px
     image-rendering: pixelated !important
     background-size: cover
@@ -349,9 +325,6 @@ a
       height: 305px
 
 .list--all-news
-  width: 100%
-  display: flex
-  flex-direction: row
   margin-top: 20px
 
   .all-news--item
@@ -367,22 +340,7 @@ a
       transition: ease-in 0.2s
       height: 155px
 
-.page-info
-  width: 100%
-  height: 170px
-  border-radius: 50px 0 50px 0
-  background-color: #494d64
-  display: flex
-  flex-direction: row
-  img
-    image-rendering: pixelated !important
-    margin-right: 30px
-
 .news-page--content
-  width: 100%
-  display: flex
-  flex-direction: column
-
   .comments-author--avatar
     width: 128px
     height: 220px
@@ -394,9 +352,6 @@ a
   margin-top: 20px
   height: 100px
   border-radius: 10px
-  width: 100%
-  display: flex
-  flex-direction: row
   background-color: #4e566d
 
   .comment-item--details
@@ -406,9 +361,6 @@ a
 
 .comment-form
   margin-top: 20px
-  display: flex
-  flex-direction: column
-  width: 100%
   label
     font-size: 1.5em
   input
@@ -442,7 +394,6 @@ a
       background-color: #636d88
 
 .alert-success
-  width: 100%
   margin-top: 20px
   height: 80px
   text-align: center
@@ -456,7 +407,6 @@ a
     transform: translateY(-50%)
 
 #comments
-
   ul
     margin-top: 0
     margin-bottom: 15px

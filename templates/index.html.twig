@@ -13,34 +13,34 @@
 
     <h1>Actualité</h1>
 
-    <div class="index-news-list">
+    <div class="index-news-list flx-row">
 
     <a href="/news/{{ lastarticle[0].id }}" id="last-news" style="background-image: url('{{ lastarticle[0].ImaageUrL }}')">
-            <div class="last-article-content">
+            <div class="last-article-content w-100">
            <div id="article-title">
              <span id="article-title-text">{{ lastarticle[0].title }} </span>
            </div>
             </div>
     </a>
 
-        <div class="other-news">
+        <div class="other-news flx-column">
 
-            <a href="/news/{{ lastarticle[1].id }}" class="a-news" style="background-image: url('{{ lastarticle[1].ImaageUrL }}')">
-                <div class="last-article-content">
+            <a href="/news/{{ lastarticle[1].id }}" class="a-news w-100" style="background-image: url('{{ lastarticle[1].ImaageUrL }}')">
+                <div class="last-article-content w-100">
                     <div id="article-title">
                         <span id="article-title-text">{{ lastarticle[1].title }} </span>
                     </div>
                 </div>
             </a>
-            <a href="/news/{{ lastarticle[2].id }}" class="a-news" style="background-image: url('{{ lastarticle[2].ImaageUrL }}')">
-                <div class="last-article-content">
+            <a href="/news/{{ lastarticle[2].id }}" class="a-news w-100" style="background-image: url('{{ lastarticle[2].ImaageUrL }}')">
+                <div class="last-article-content w-100">
                     <div id="article-title">
                         <span id="article-title-text">{{ lastarticle[2].title }} </span>
                     </div>
                 </div>
             </a>
-            <a href="/news/{{ lastarticle[3].id }}" class="a-news" style="background-image: url('{{ lastarticle[3].ImaageUrL }}')">
-                <div class="last-article-content">
+            <a href="/news/{{ lastarticle[3].id }}" class="a-news w-100" style="background-image: url('{{ lastarticle[3].ImaageUrL }}')">
+                <div class="last-article-content w-100">
                     <div id="article-title">
                         <span id="article-title-text">{{ lastarticle[3].title }} </span>
                     </div>
@@ -50,14 +50,14 @@
 
     </div>
 
-    <div id="btn-see-more"><a href="/news"> Voir plus de news... <i class="fi-rr-eye"></i>   </a></div>
+    <div  class="w-100" id="btn-see-more"><a href="/news"> Voir plus de news... <i class="fi-rr-eye"></i>   </a></div>
 
-    <div class="index-two-columns">
+    <div class="index-two-columns flx-row">
         <div class="last-appartments">
             <h1>Derniers appartements</h1>
 
             {% for room in lastroom %}
-                <div class="appartment">
+                <div class="appartment flx-row w-100">
                     <div id="room-icon" style="background-image: url('{{ room.thumbnail }}')"></div>
                     <div id="room-desc">
                         <h2>{{ room.name }}</h2>
@@ -74,9 +74,9 @@
             <h1>Nos topics sur City</h1>
             {% for post in forumPosts %}
 
-                <div class="forum-post">
+                <div class="forum-post flx-row w-100">
                     <img src="https://api.habbocity.me/avatar_image.php?user={{ post.author }}&headonly=0&direction=2&head_direction=2&size=l" alt="Auteur du topic">
-                    <div class="forum-post-desc">
+                    <div class="forum-post-desc flx-column">
                     <h3>{{ post.title }}</h3>
                         <span>{{ post.description }}</span>
                         <span class="auteur">{{ post.author }}</span>
@@ -90,11 +90,11 @@
 
     <h1>Flux City</h1>
 
-    <div class="flux-city">
+    <div class="flux-city flx-row w-100">
         {% for data in staffStream %}
-        <div class="box-flux">
+        <div class="box-flux flx-row">
             <img src="https://api.habbocity.me/avatar_image.php?user={{ data.pseudo }}&headonly=0&direction=2&head_direction=2&size=l" alt="avatar" class="box-flux-avatar">
-            <div class="box-flux--desc">
+            <div class="box-flux--desc flx-column">
                 <h2>{{ data.pseudo }}</h2>
                 <span>{{ data.rank }}</span>
                 <span>{{ data.date|date("d/m/Y") }}</span>

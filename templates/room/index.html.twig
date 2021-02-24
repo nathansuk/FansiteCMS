@@ -10,11 +10,10 @@
             <span>Ici tu pourras voir la liste de tous nos appartements, en cliquant sur "S'y rendre" tu accèderas directement à l'appartement en question sur Habbocity</span>
         </div>
     </div>
-<div class="roomlist">
 
-
+<div class="roomlist w-100">
     {% for room in roomlist %}
-        <div class="room" style="background-image: url('{{ room.thumbnail }}');">
+        <div class="room w-100" style="background-image: url('{{ room.thumbnail }}');">
                 <div class="room--title">
                         <h2>{{ room.name }}</h2>
                 </div>

@@ -3,13 +3,13 @@
 {% block title %}{{ site_name }} : {{ article.title|default('Les articles') }}!{% endblock %}
 
 {% block body %}
-    <div class="show-news-content">
+    <div class="show-news-content w-100 flx-row">
 
         {% if article %}
 
-            <div class="news-page--content">
-        <div class="show-news">
-            <div class="article-thumbnail" style="background-image: url('{{ article.ImaageUrL}}')"></div>
+            <div class="news-page--content w-100 flx-column">
+        <div class="show-news w-100">
+            <div class="article-thumbnail w-100" style="background-image: url('{{ article.ImaageUrL}}')"></div>
             <div class="article-content">
                 <h1>{{ article.title}}</h1>
                 <span>{{ article.content|raw }}</span>
@@ -18,11 +18,11 @@
 
                 {% if app.user %}
                     {% for message in app.flashes('success') %}
-                        <div class="alert-success">
+                        <div class="alert-success w-100">
                             <span>{{ message }} <a href="/news/{{ article.id }}">Actualiser</a> </span>
                         </div>
                     {% endfor %}
-                    <div class="comment-form">
+                    <div class="comment-form flx-column w-100">
                     {{ form_start(comment_form) }}
                     {{ form_widget(comment_form) }}
                     <button type="submit" class="btn btn-primary">Commenter</button>
@@ -31,7 +31,7 @@
                 {% endif %}
 
             {% for comment in comments|reverse %} <!-- lel dunno why this doesnt work in php meh -->
-                <div class="comment-item">
+                <div class="comment-item flx-row w-100">
                     <img src="https://api.habbocity.me/avatar_image.php?user={{ comment.author }}&headonly=0&direction=2&head_direction=2&size=l" alt="Comment's author" class="comments-author--avatar">
                     <div class="comment-item--details">
                     <h3>{{ comment.author }}</h3>
@@ -43,7 +43,7 @@
             </div>
 
             {% else %}
-                <div class="show-news show-news--error">
+                <div class="show-news w-100 show-news--error">
                     <div class="article-content article-content--error">
                         <img src="https://images.habbo.com/c_images/HabboWay/habboway_5a.png" />
                         <h1>Oops !</h1>
@@ -56,7 +56,7 @@
 
         <div class="list-other-news">
             {% for news in list %}
-                <div class="listed-news" style="background-image: url('{{ news.ImaageUrL }}');">
+                <div class="listed-news w-100" style="background-image: url('{{ news.ImaageUrL }}');">
                     <div id="listed-news-title"><h4>{{ news.title }}</h4></div>
                 </div>
             {% endfor %}

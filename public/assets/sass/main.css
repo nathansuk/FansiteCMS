@@ -91,9 +91,7 @@
 }
 
 .top-menu {
-  display: flex;
   width: 100%;
-  flex-direction: row;
 }
 
 #button-close-menu {
@@ -107,8 +105,6 @@
 /* Profile Part */
 .profile-menu-show {
   width: 100%;
-  display: flex;
-  flex-direction: column;
   text-align: center;
   margin-bottom: 50px;
 }
@@ -138,8 +134,6 @@
 .user-purse-info {
   margin-top: 20px;
   width: 100%;
-  display: flex;
-  flex-direction: row;
 }
 .user-purse-info span {
   font-size: 0.9em;
@@ -155,8 +149,6 @@ hr {
 }
 
 .menu-auth-btn {
-  display: flex;
-  flex-direction: column;
   width: 100%;
   margin: auto;
 }
@@ -299,8 +291,6 @@ header .responsive-icon {
 /* REGISTER FORM */
 .registration--content {
   width: 100%;
-  display: flex;
-  flex-direction: row;
 }
 .registration--content form {
   width: 100%;
@@ -452,25 +442,49 @@ a {
   text-decoration: none;
 }
 
+.w-100 {
+  width: 100%;
+}
+
+.flx-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.flx-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.skewed-box {
+  border-radius: 50px 0 50px 0;
+}
+
 /* CORE CONTAINER*/
 #container {
   width: 75%;
   display: flex;
   flex-direction: column;
-  padding-left: 50px;
-  padding-right: 50px;
+  padding: 0 50px 50px 50px;
   color: white;
   position: absolute;
   right: 0;
 }
 
-/* HOMEPAGE STYLE */
-/* ARTICLE MODULE */
-.index-news-list {
+/* HEAD STYLE */
+.page-info {
+  width: 100%;
+  height: 170px;
+  border-radius: 50px 0 50px 0;
+  background-color: #494d64;
   display: flex;
   flex-direction: row;
 }
+.page-info img {
+  margin-right: 30px;
+}
 
+/* ARTICLE MODULE */
 #last-news {
   width: 60%;
   height: 320px;
@@ -486,12 +500,9 @@ a {
 
 .other-news {
   width: 40%;
-  display: flex;
-  flex-direction: column;
 }
 
 .a-news {
-  width: 100%;
   height: 100px;
   background-size: cover;
   margin-bottom: 10px;
@@ -504,7 +515,6 @@ a {
 }
 
 .last-article-content {
-  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column-reverse;
@@ -529,7 +539,6 @@ a {
 }
 
 #btn-see-more {
-  width: 100%;
   height: 50px;
   background-color: #494d64;
   text-align: center;
@@ -546,21 +555,13 @@ a {
   top: 30%;
 }
 
-.index-two-columns {
-  display: flex;
-  flex-direction: row;
-}
-
 .last-appartments {
   width: 60%;
   margin-right: 20px;
 }
 
 .appartment {
-  width: 100%;
   height: 90px;
-  display: flex;
-  flex-direction: row;
   background-color: #494d64;
   border-radius: 10px;
   padding-left: 10px;
@@ -601,11 +602,8 @@ a {
 }
 
 .forum-post {
-  display: flex;
-  flex-direction: row;
   background-color: #494d64;
   border-radius: 10px;
-  width: 100%;
   height: 120px;
   margin-bottom: 10px;
   transition: ease-in 0.2s;
@@ -617,8 +615,6 @@ a {
 }
 .forum-post .forum-post-desc {
   width: 80%;
-  display: flex;
-  flex-direction: column;
 }
 .forum-post .forum-post-desc h3 {
   margin-bottom: 5px;
@@ -639,20 +635,12 @@ a {
   transform: translateY(-50%);
 }
 
-.flux-city {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-}
-
 .box-flux {
   height: 150px;
   width: 20%;
   border-radius: 10px;
   background-color: #494d64;
   margin-right: 15px;
-  display: flex;
-  flex-direction: row;
 }
 .box-flux h1 {
   margin-bottom: 10px;
@@ -664,8 +652,6 @@ a {
 }
 .box-flux .box-flux--desc {
   width: 55%;
-  display: flex;
-  flex-direction: column;
 }
 .box-flux .fi-rr-arrow-down {
   color: #ef476f;
@@ -683,12 +669,9 @@ a {
   top: 30%;
 }
 
-.roomlist {
-  width: 100%;
-}
+/*ROOM PAGE */
 .roomlist .room {
   background-size: cover;
-  width: 100%;
   height: 150px;
   border-radius: 10px;
   margin-bottom: 20px;
@@ -730,14 +713,8 @@ a {
   border-radius: 10px;
 }
 
-.show-news-content {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-}
-
+/* / ROOM PAGE */
 .show-news {
-  width: 100%;
   height: 400px;
   background-color: #494d64;
   border-radius: 10px;
@@ -746,21 +723,16 @@ a {
 .show-news--error {
   text-align: center;
 }
-.show-news--error img {
-  image-rendering: pixelated !important;
-}
 .show-news--error .article-content--error {
   position: relative;
   top: 10%;
 }
 
 .article-thumbnail {
-  width: 100%;
   margin: auto;
   height: 200px;
   border-radius: 5px;
   background-size: cover;
-  image-rendering: pixelated !important;
 }
 
 .article-content {
@@ -773,7 +745,6 @@ a {
 }
 
 .listed-news {
-  width: 100%;
   height: 100px;
   margin-bottom: 10px;
   background-size: cover;
@@ -798,12 +769,8 @@ a {
   margin: 0;
 }
 
-#list--last-news {
-  width: 100%;
-}
 #list--last-news .last-news--box {
   margin-top: 20px;
-  width: 100%;
   height: 300px;
   image-rendering: pixelated !important;
   background-size: cover;
@@ -816,9 +783,6 @@ a {
 }
 
 .list--all-news {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
   margin-top: 20px;
 }
 .list--all-news .all-news--item {
@@ -835,24 +799,6 @@ a {
   height: 155px;
 }
 
-.page-info {
-  width: 100%;
-  height: 170px;
-  border-radius: 50px 0 50px 0;
-  background-color: #494d64;
-  display: flex;
-  flex-direction: row;
-}
-.page-info img {
-  image-rendering: pixelated !important;
-  margin-right: 30px;
-}
-
-.news-page--content {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-}
 .news-page--content .comments-author--avatar {
   width: 128px;
   height: 220px;
@@ -865,9 +811,6 @@ a {
   margin-top: 20px;
   height: 100px;
   border-radius: 10px;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
   background-color: #4e566d;
 }
 .comment-item .comment-item--details {
@@ -879,9 +822,6 @@ a {
 
 .comment-form {
   margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
 }
 .comment-form label {
   font-size: 1.5em;
@@ -921,7 +861,6 @@ a {
 }
 
 .alert-success {
-  width: 100%;
   margin-top: 20px;
   height: 80px;
   text-align: center;

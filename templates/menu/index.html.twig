@@ -6,21 +6,21 @@
 
         <div class="side-menu-container">
 
-            <div class="top-menu">
+            <div class="top-menu flx-row">
                 <img src="/assets/imgs/3cvomVt.png" class="menu-logo" alt="logo">
                 <button onclick="closeDiv()" id="button-close-menu">Menu <i class="fi-rr-cross"></i></button>
             </div>
             <!-- MODAL ZONE-->
 
             {% if app.user %}
-            <div class="profile-menu-show">
+            <div class="profile-menu-show flx-column">
 
                 <div id="profile-pic"></div>
                 <span id="photo-pseudo">{{ app.user.username }}</span>
                 <span id="photo-rank">Administrateur</span>
                 <a href="/logout" class="menu--btn"><span>Déconnexion</span></a>
 
-                <div class="user-purse-info">
+                <div class="user-purse-info flx-row">
                     <div class="purse-info">{{ app.user.points }} <span>points</span></div>
                     <hr>
                     <div class="purse-info">1000 <span>gagnées</span></div>
@@ -29,7 +29,7 @@
                 </div>
             </div>
                 {% else %}
-                    <div class="menu-auth-btn">
+                    <div class="menu-auth-btn flx-column">
                         <a href="/login" class="menu--btn"><span>Se connecter</span></a>
                         <a href="/register" class="menu--btn"><span>S'inscrire</span></a>
                     </div>

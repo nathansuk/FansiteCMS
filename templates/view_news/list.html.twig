@@ -12,9 +12,9 @@
         </div>
     </div>
 
-   <a href="/news/{{ newsarray[0].id }}" id="list--last-news">
+   <a href="/news/{{ newsarray[0].id }}" id="list--last-news" class="w-100">
 
-    <div class="last-news--box" style="background-image: url('{{ newsarray[0].ImaageUrL }}')">
+    <div class="last-news--box w-100" style="background-image: url('{{ newsarray[0].ImaageUrL }}')">
 
         <div class="last-article-content">
             <div id="article-title">
@@ -24,7 +24,7 @@
 
     </div>
 
-       <div class="list--all-news">
+       <div class="list--all-news w-100 flx-row">
 
            {% for news in newsarray[1:] %}
 
