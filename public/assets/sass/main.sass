@@ -1,4 +1,5 @@
 @use 'vars' as global
+@import "utilities/extends"
 @import 'menu'
 @import "header"
 @import "forms"
@@ -36,8 +37,6 @@ a
 /* CORE CONTAINER*/
 #container
   width: 75%
-  display: flex
-  flex-direction: column
   padding: 0 50px 50px 50px
   color: white
   position: absolute
@@ -105,10 +104,9 @@ a
     top: 30%
 
 #btn-see-more
+  @extend %main-box-style
   height: 50px
-  background-color: global.$main-box-color
   text-align: center
-  border-radius: 10px
   margin-top: 10px
   transition: ease-in 0.2s
 
@@ -124,9 +122,8 @@ a
   margin-right: 20px
 
 .appartment
+  @extend %main-box-style
   height: 90px
-  background-color: global.$main-box-color
-  border-radius: 10px
   padding-left: 10px
   padding-top: 10px
   margin-bottom: 10px
@@ -162,8 +159,7 @@ a
   width: 40%
 
 .forum-post
-  background-color: global.$main-box-color
-  border-radius: 10px
+  @extend %main-box-style
   height: 120px
   margin-bottom: 10px
   transition: ease-in 0.2s
@@ -192,10 +188,9 @@ a
 
 
 .box-flux
+  @extend %main-box-style
   height: 150px
   width: 20%
-  border-radius: 10px
-  background-color: global.$main-box-color
   margin-right: 15px
   h1
     margin-bottom: 10px
@@ -264,12 +259,11 @@ a
 
 /* / ROOM PAGE */
 .show-news
+  @extend %main-box-style
   height: 400px
-  background-color: global.$main-box-color
-  border-radius: 10px
 
-.show-news--error
-  text-align: center
+  &--error
+    text-align: center
 
   .article-content--error
     position: relative
@@ -315,7 +309,6 @@ a
   .last-news--box
     margin-top: 20px
     height: 300px
-    image-rendering: pixelated !important
     background-size: cover
     border-radius: 10px
     transition: ease-in 0.2s
@@ -459,10 +452,7 @@ a
     margin-left: 30px
     padding-right: 20px
 
-  .index-news-list
-    flex-direction: column
-
-  .index-two-columns
+  .index-news-list, .index-two-columns, .flux-city, .show-news-content, .list--all-news
     flex-direction: column
 
     .last-appartments
@@ -477,8 +467,7 @@ a
 
   .other-news
     width: 100%
-  .flux-city
-    flex-direction: column
+
   .box-flux
     width: 100%
     margin-bottom: 15px
@@ -494,16 +483,12 @@ a
   .show-news
     width: 100%
 
-  .show-news-content
-    flex-direction: column
-
   .list-other-news
     width: 100%
     margin-top: 20px
     margin-left: 0
 
   .list--all-news
-    flex-direction: column
     .all-news--item
       width: 100%
 
