@@ -16,7 +16,7 @@
             <div class="profile-menu-show flx-column">
 
                 <div id="profile-pic"></div>
-                <span id="photo-pseudo">{{ app.user.username }}</span>
+                <a href="/profile/{{ app.user.username }}" class="profile-link"> <span id="photo-pseudo">{{ app.user.username }}</span></a>
                 <span id="photo-rank">Administrateur</span>
                 <a href="/logout" class="menu--btn"><span>Déconnexion</span></a>
 

@@ -1,6 +1,6 @@
 /* GLOBAL VARIABLES */
 /* GLOBAL VARIABLES */
-.show-news, .box-flux, .forum-post, .appartment, #btn-see-more {
+.user-last-comment, .user-infos, .show-news, .box-flux, .forum-post, .appartment, #btn-see-more {
   background-color: #494d64;
   border-radius: 10px;
 }
@@ -98,6 +98,10 @@
 
 .top-menu {
   width: 100%;
+}
+
+.profile-link {
+  margin-top: 10px;
 }
 
 #button-close-menu {
@@ -430,6 +434,10 @@ header .responsive-icon {
     border-radius: 0 0 10px 10px;
   }
 }
+::-webkit-scrollbar {
+  background-color: #3C3F51;
+}
+
 html {
   overflow-y: scroll;
 }
@@ -795,15 +803,24 @@ a {
   width: 128px;
   height: 220px;
   position: relative;
+  transition: ease-in 0.2s;
   top: -35px;
 }
 
 .comment-item {
+  cursor: auto;
   overflow: hidden;
   margin-top: 20px;
   height: 100px;
   border-radius: 10px;
   background-color: #4e566d;
+}
+.comment-item:hover {
+  background-color: #727a94;
+}
+.comment-item:hover > .comments-author--avatar {
+  transition: ease-in 0.2s;
+  top: -40px;
 }
 .comment-item .comment-item--details {
   flex-direction: column;
@@ -881,6 +898,52 @@ a {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
+}
+
+/* USER PROFILE */
+.user-infos {
+  width: 40%;
+  height: 200px;
+}
+.user-infos h1 {
+  margin-bottom: 5px;
+}
+.user-infos h2 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.user-infos .avatar {
+  position: relative;
+  top: -20px;
+  margin-right: 30px;
+}
+
+.rank-box {
+  text-align: center;
+  padding: 3px;
+  width: 100px;
+  height: 20px;
+  background-color: #1ea471;
+  color: white;
+  border-radius: 5px;
+}
+
+.user-last-comment {
+  overflow: scroll;
+  overflow-x: hidden;
+  margin-left: 20px;
+  width: 60%;
+  height: 200px;
+}
+.user-last-comment .last-comment--content {
+  margin-left: 20px;
+}
+.user-last-comment h2 {
+  margin-bottom: 5px;
+}
+.user-last-comment img {
+  width: 60px;
+  height: 100px;
 }
 
 /* MEDIA QUERIES PART */
@@ -984,6 +1047,20 @@ a {
 
   .last-forum-posts {
     width: 100%;
+  }
+
+  .user-infos {
+    width: 100%;
+  }
+
+  .user-last-comment {
+    width: 100%;
+    margin-top: 10px;
+    margin-left: 0;
+  }
+
+  .profile-content {
+    flex-direction: column;
   }
 }
 

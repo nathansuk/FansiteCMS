@@ -6,8 +6,8 @@ namespace App;
 
 class Api {
 
-    private $apiKey;
     private $data;
+    private $apiKey;
     private $userName;
     private $erreur;
 
@@ -19,10 +19,10 @@ class Api {
         return json_decode($response);
     }
 
-    public function __construct($userName, $apiKey) {
-        $this->apiKey = $apiKey;
+    public function __construct($userName) {
         $this->userName = $userName;
-        $this->data = Api::cURL("https://api.habbocity.me/avatar_info.php?key=".$this->apiKey."&user=".$this->userName."&badge&groupe");
+        $this->apiKey = getenv('API_KEY');
+        $this->data = Api::cURL("https://api.habbocity.me/avatar_info.php?key=Cr53Rcgt67&user=".$this->userName."&badge&groupe&rooms&lastTweets");
         $this->checkErreur();
     }
 
@@ -50,6 +50,14 @@ class Api {
         return $this->data->register;
     }
 
+    public function getDiamonds(): int {
+        return $this->data->diamonds;
+    }
+
+    public function getRooms(): array{
+        return $this->data->rooms;
+    }
+
     public function getListBadge(): ?array {
 
         if($this->erreur != null)
@@ -69,8 +77,10 @@ class Api {
             $this->erreur = "Nous avons pas rÃ©ussi Ã  effectuer la requÃªte vers le serveur d'HabboCity.";
         } else {
 
+            /*
             if(array_key_exists("type", $this->data) && $this->data->type == "error")
                 $this->erreur = $this->data->message;
+            */
         }
     }
 

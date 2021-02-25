@@ -66,7 +66,7 @@ class ViewNewsController extends AbstractController
      * @return Response
      */
     public function index(NewsService $newsService): Response {
-        $newsArray = $newsService->getAllNews();
+        $newsArray = array_reverse($newsService->getAllNews());
         return $this->render('view_news/list.html.twig', [
             'newsarray' => $newsArray
             ]);

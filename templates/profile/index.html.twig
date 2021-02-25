@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProfileController!{% endblock %}
+
+{% block body %}
+
+    <div class="profile-content flx-row w-100">
+
+    <div class="user-infos flx-row">
+
+        <img class="avatar" src="https://api.habbocity.me/avatar_image.php?user={{ user.username }}&headonly=0&direction=2&head_direction=3&size=l" alt="Avatar">
+        <div class="users-details flx-column">
+        <h1>{{ user.username }}</h1>
+            <span class="rank-box">Administrateur</span>
+        <h2>Points : {{ user.points }}</h2>
+        <span>Mission : <i>{{ userMotto }}</i></span>
+        </div>
+
+    </div>
+            <div class="user-last-comment flx-column">
+                {% for comment in comments %}
+                    <div class="last-comment-content flx-row">
+                        <img src="https://api.habbocity.me/avatar_image.php?user={{ user.username }}&headonly=1&direction=2&head_direction=2&size=l" alt="Avatar">
+                        <div class="last-comment--content">
+                       <h2>{{ comment.articleId }}</h2>
+                        <span>{{ comment.content }}</span>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+    </div>
+
+
+{% endblock %}

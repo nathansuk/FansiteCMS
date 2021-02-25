@@ -5,6 +5,9 @@
 @import "forms"
 @import "video"
 
+::-webkit-scrollbar
+  background-color: global.$main-bg-color
+
 html
   overflow-y: scroll
 
@@ -338,14 +341,21 @@ a
     width: 128px
     height: 220px
     position: relative
+    transition: ease-in 0.2s
     top: -35px
 
 .comment-item
+  cursor: auto
   overflow: hidden
   margin-top: 20px
   height: 100px
   border-radius: 10px
   background-color: #4e566d
+  &:hover
+    background-color: #727a94
+  &:hover > .comments-author--avatar
+    transition: ease-in 0.2s
+    top: -40px
 
   .comment-item--details
     flex-direction: column
@@ -413,6 +423,48 @@ a
     position: relative
     top: 50%
     transform: translateY(-50%)
+
+/* USER PROFILE */
+.user-infos
+  @extend %main-box-style
+  width: 40%
+  height: 200px
+  h1
+    margin-bottom: 5px
+  h2
+    margin-top: 5px
+    margin-bottom: 5px
+  .avatar
+    position: relative
+    top: -20px
+    margin-right: 30px
+
+.rank-box
+  text-align: center
+  padding: 3px
+  width: 100px
+  height: 20px
+  background-color: #1ea471
+  color: white
+  border-radius: 5px
+
+.user-last-comment
+  @extend %main-box-style
+  overflow: scroll
+  overflow-x: hidden
+  margin-left: 20px
+  width: 60%
+  height: 200px
+  .last-comment--content
+    margin-left: 20px
+  h2
+    margin-bottom: 5px
+  img
+    width: 60px
+    height: 100px
+
+
+
 
 /* MEDIA QUERIES PART */
 @media screen and (max-width: 960px)
@@ -497,6 +549,15 @@ a
 
   .last-forum-posts
     width: 100%
+
+  .user-infos
+    width: 100%
+  .user-last-comment
+    width: 100%
+    margin-top: 10px
+    margin-left: 0
+  .profile-content
+    flex-direction: column
 
 
 
