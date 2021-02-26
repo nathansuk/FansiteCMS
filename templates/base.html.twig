@@ -14,15 +14,6 @@
             <!-- Renders a link tag (if your module requires any CSS)
                  <link rel="stylesheet" href="/build/app.css"> -->
         {% endblock %}
-
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-
-            <!-- Renders app.js & a webpack runtime.js file
-                <script src="/build/runtime.js" defer></script>
-                <script src="/build/app.js" defer></script>
-                See note below about the "defer" attribute -->
-        {% endblock %}
     </head>
     <body>
     <!-- Header -->
@@ -42,4 +33,13 @@
 
     </div>
     </body>
+
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+        <!-- Renders app.js & a webpack runtime.js file
+            <script src="/build/runtime.js" defer></script>
+            <script src="/build/app.js" defer></script>
+            See note below about the "defer" attribute -->
+    {% endblock %}
+
 </html>

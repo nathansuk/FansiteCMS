@@ -22,7 +22,7 @@ class Api {
     public function __construct($userName) {
         $this->userName = $userName;
         $this->apiKey = getenv('API_KEY');
-        $this->data = Api::cURL("https://api.habbocity.me/avatar_info.php?key=Cr53Rcgt67&user=".$this->userName."&badge&groupe&rooms&lastTweets");
+        $this->data = Api::cURL("https://api.habbocity.me/avatar_info.php?key=Cr53Rcgt67&user=".$this->userName."&badge&wealth&rooms&lastTweets");
         $this->checkErreur();
     }
 
@@ -56,6 +56,10 @@ class Api {
 
     public function getRooms(): array{
         return $this->data->rooms;
+    }
+
+    public function getWealth(): array {
+        return $this->data->wealth;
     }
 
     public function getListBadge(): ?array {
