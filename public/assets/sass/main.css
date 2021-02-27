@@ -1062,25 +1062,16 @@ a {
   .index-news-list, .index-two-columns, .flux-city, .show-news-content, .list--all-news, .user-purse {
     flex-direction: column;
   }
-  .index-news-list .last-appartments, .index-two-columns .last-appartments, .flux-city .last-appartments, .show-news-content .last-appartments, .list--all-news .last-appartments, .user-purse .last-appartments {
-    width: 100%;
-  }
-  .index-news-list .last-appartments .appartment, .index-two-columns .last-appartments .appartment, .flux-city .last-appartments .appartment, .show-news-content .last-appartments .appartment, .list--all-news .last-appartments .appartment, .user-purse .last-appartments .appartment {
-    width: 100%;
-  }
-  .index-news-list .last-appartments .appartment a, .index-two-columns .last-appartments .appartment a, .flux-city .last-appartments .appartment a, .show-news-content .last-appartments .appartment a, .list--all-news .last-appartments .appartment a, .user-purse .last-appartments .appartment a {
-    margin-right: 10px;
-  }
-  .index-news-list .last-contest, .index-two-columns .last-contest, .flux-city .last-contest, .show-news-content .last-contest, .list--all-news .last-contest, .user-purse .last-contest {
+
+  .last-appartments, .appartment, .last-contest, .other-news, .box-flux, .show-news, .list-other-news, .all-news--item, .last-forum-posts, .user-infos, .user-last-comment, .purse-box {
     width: 100%;
   }
 
-  .other-news {
-    width: 100%;
+  .appartment a {
+    margin-right: 10px;
   }
 
   .box-flux {
-    width: 100%;
     margin-bottom: 15px;
   }
 
@@ -1094,34 +1085,16 @@ a {
     height: 205px;
   }
 
-  .show-news {
-    width: 100%;
-  }
-
   .list-other-news {
-    width: 100%;
     margin-top: 20px;
     margin-left: 0;
-  }
-
-  .list--all-news .all-news--item {
-    width: 100%;
   }
 
   .page-info {
     padding-bottom: 35px;
   }
 
-  .last-forum-posts {
-    width: 100%;
-  }
-
-  .user-infos {
-    width: 100%;
-  }
-
   .user-last-comment {
-    width: 100%;
     margin-top: 10px;
     margin-left: 0;
   }
@@ -1131,7 +1104,6 @@ a {
   }
 
   .purse-box {
-    width: 100%;
     margin-top: 10px;
   }
 }

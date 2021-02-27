@@ -28,6 +28,10 @@ class RegisterController extends AbstractController
     public function registration(Request $request, EntityManagerInterface $entityManager, UserPasswordEncoderInterface $passwordEncoder, LoginAuthenticator $loginAuthenticator, GuardAuthenticatorHandler $guardAuthenticatorHandler): Response
     {
 
+        if ($this->getUser()) {
+            return $this->redirectToRoute('home');
+        }
+
         $user = new User();
         $register_form = $this->createForm(RegistrationType::class, $user);
         $register_form->handleRequest($request);
@@ -47,6 +51,7 @@ class RegisterController extends AbstractController
              $guardAuthenticatorHandler->authenticateUserAndHandleSuccess($user, $request, $loginAuthenticator, 'main');
              return $this->redirectToRoute('home');
         }
+
 
         return $this->render('register/index.html.twig', [
             'register_form' => $register_form->createView()
