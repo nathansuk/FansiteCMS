@@ -17,6 +17,8 @@
 
     </div>
             <div class="user-last-comment flx-column">
+
+                {% if comments %}
                 {% for comment in comments %}
                     <div class="last-comment-content flx-row">
                         <img src="https://api.habbocity.me/avatar_image.php?user={{ user.username }}&headonly=1&direction=2&head_direction=2&size=l" alt="Avatar">
@@ -26,11 +28,38 @@
                         </div>
                     </div>
                 {% endfor %}
+                {% else %}
+                    <span class="user-has-nocomment">Cet utilisateur n'a pas de commentaire.</span>
+                {% endif %}
             </div>
 
     </div>
 
+    <div class="user-purse w-100 flx-row">
+        <div class="purse-box flx-row">
+            <div class="badge-list">
+            {% for badge in userBadges %}
+                <img src="https://swf.habbocity.me/c_images/album1584/{{ badge.code }}.gif" alt="Badge" class="user-badge">
+            {% endfor %}
+            </div>
+        </div>
+        <div class="purse-box diamonds-box flx-row">
+            <div class="diamonds-icon"></div>
+            <h2>{{ userDiamonds }} diamants</h2>
+        </div>
+        {% if user.verified %}
+            <div class="purse-box user-verified">
+                <h2>Cet utilisateur est vérifié</h2>
+            </div>
+        {% else%}
+            <div class="purse-box user-not-verified">
+                <h2>Cet utilisateur n'est pas vérifié</h2>
+            </div>
+        {% endif %}
+    </div>
+    <div class="netWorth-chart">
     <canvas id="myChart" width="400" height="400"></canvas>
+    </div>
 {% endblock %}
 
 {% block javascripts %}
@@ -43,6 +72,8 @@
             netWorth.push({{ data.netWorth }});
         {% endfor %}
         var ctx = document.getElementById('myChart').getContext('2d');
+        ctx.canvas.width = 1000;
+        ctx.canvas.height = 400;
         var myChart = new Chart(ctx, {
             type: 'line',
             data: {
@@ -66,19 +97,26 @@
                         'rgba(153, 102, 255, 1)',
                         'rgba(255, 159, 64, 1)'
                     ],
-                    borderWidth: 1
+                    borderWidth: 3
                 }]
             },
+            responsive: true,
             options: {
+                animation: {
+                  duration: 1000,
+                  easing: 'easeOutQuart'
+                },
                 scales: {
                     yAxes: [{
                         ticks: {
                             beginAtZero: true
                         }
                     }]
-                }
+                },
             }
         });
+        Chart.defaults.global.defaultFontColor = 'white';
+        Chart.defaults.global.defaultFontFamily = 'Ubuntu Condensed';
     </script>
 
 {% endblock %}
