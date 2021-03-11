@@ -17,15 +17,11 @@
 
                 <div id="profile-pic"></div>
                 <a href="/profile/{{ app.user.username }}" class="profile-link"> <span id="photo-pseudo">{{ app.user.username }}</span></a>
-                <span id="photo-rank">Administrateur</span>
+                <span id="photo-rank">{{ app.user.rank.name }}</span>
                 <a href="/logout" class="menu--btn"><span>Déconnexion</span></a>
 
-                <div class="user-purse-info flx-row">
+                <div class="user-purse-info">
                     <div class="purse-info">{{ app.user.points }} <span>points</span></div>
-                    <hr>
-                    <div class="purse-info">1000 <span>gagnées</span></div>
-                    <hr>
-                    <div class="purse-info">1000 <span>gagnées</span></div>
                 </div>
             </div>
                 {% else %}

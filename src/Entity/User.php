@@ -67,6 +67,12 @@ class User implements UserInterface
      */
     private $verified;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Rank::class, inversedBy="users")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $rank;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -184,6 +190,18 @@ class User implements UserInterface
     public function setVerified(bool $verified): self
     {
         $this->verified = $verified;
+
+        return $this;
+    }
+
+    public function getRank(): ?Rank
+    {
+        return $this->rank;
+    }
+
+    public function setRank(?Rank $rank): self
+    {
+        $this->rank = $rank;
 
         return $this;
     }

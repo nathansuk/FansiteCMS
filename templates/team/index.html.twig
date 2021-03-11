@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello TeamController!{% endblock %}
+
+{% block body %}
+    {% for rank in ranks|reverse %}
+
+        {% if rank.id > 1 %}
+            <!-- We get ranks except member's one -->
+            <div class="staff-rank flx-column">
+               <div class="rank-title w-100">
+                   <h1>{{ rank.name }}</h1>
+               </div>
+         <div class="rank-userlist flx-row">
+             {% if rank.getUsers() is not empty %}
+                {% for user in rank.getUsers() %}
+                    <div class="rank-users flx-row" onclick="location.href = '/profile/{{ user.username }}'">
+                        <img
+                            src="https://i.pinimg.com/originals/0c/fe/48/0cfe48335eca1ec76577f1b1fd5b89b6.jpg"
+                            alt="Background"
+                            class="box-background">
+                        <img src="https://api.habbocity.me/avatar_image.php?user={{ user.username }}&headonly=0&direction=2&head_direction=2&size=l" alt="Avatar">
+                        <h2>{{ user.username }}</h2>
+                    </div>
+                {% endfor %}
+                 {% else %}
+                     <h2 class="no-user">Personne à afficher</h2>
+             {% endif %}
+         </div>
+
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endblock %}

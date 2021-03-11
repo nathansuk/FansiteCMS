@@ -10,7 +10,7 @@
         <img class="avatar" src="https://api.habbocity.me/avatar_image.php?user={{ user.username }}&headonly=0&direction=2&head_direction=3&size=l" alt="Avatar">
         <div class="users-details flx-column">
         <h1>{{ user.username }}</h1>
-            <span class="rank-box">Administrateur</span>
+            <span class="rank-box">{{ user.rank.name }}</span>
         <h2>Points : {{ user.points }}</h2>
         <span>Mission : <i>{{ userMotto }}</i></span>
         </div>
