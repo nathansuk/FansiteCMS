@@ -22,15 +22,15 @@ class StaffStreamCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('pseudo'),
-            TextField::new('rank'),
-            DateField::new('date'),
+            TextField::new('pseudo')->setLabel('Pseudo'),
+            TextField::new('rank')->setLabel('Poste'),
+            DateField::new('date')->setLabel('Date'),
             ChoiceField::new('type')->setChoices([
                 'Départ' => 'QUIT',
                 'Changement' => 'SWITCH',
                 'Arrivée' => 'ARRIVAL'
                 ]
-            ),
+            )->setLabel('Type'),
         ];
     }
 

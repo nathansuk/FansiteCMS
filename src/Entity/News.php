@@ -54,6 +54,11 @@ class News
      */
     private $comments;
 
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isPublished;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
@@ -168,5 +173,17 @@ class News
 
     public function __toString() {
         return $this->title;
+    }
+
+    public function getIsPublished(): ?bool
+    {
+        return $this->isPublished;
+    }
+
+    public function setIsPublished(bool $isPublished): self
+    {
+        $this->isPublished = $isPublished;
+
+        return $this;
     }
 }

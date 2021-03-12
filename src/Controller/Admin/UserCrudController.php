@@ -20,10 +20,10 @@ class UserCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('username'),
-            IntegerField::new('points'),
-            BooleanField::new('verified'),
-            AssociationField::new('rank')
+            TextField::new('username')->setLabel('Pseudo'),
+            IntegerField::new('points')->setLabel('Points'),
+            BooleanField::new('verified')->setLabel('Vérifié ?'),
+            AssociationField::new('rank')->setLabel('Rank')
         ];
     }
 

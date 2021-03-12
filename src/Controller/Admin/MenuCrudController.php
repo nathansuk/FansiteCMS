@@ -19,9 +19,9 @@ class MenuCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('page'),
-            TextField::new('link'),
-            TextField::new('icon'),
+            TextField::new('page')->setLabel('Nom de la page'),
+            TextField::new('link')->setLabel('URL sans préfixe'),
+            TextField::new('icon')->setLabel('Icône (UICons)'),
         ];
     }
 

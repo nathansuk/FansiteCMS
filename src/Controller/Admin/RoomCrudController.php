@@ -21,10 +21,10 @@ class RoomCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('name'),
-            TextField::new('description'),
-            IntegerField::new('cityid'),
-            TextField::new('thumbnail'), //To-do : replace this by a ImageField
+            TextField::new('name')->setLabel("Nom de l'appart"),
+            TextField::new('description')->setLabel('Description'),
+            IntegerField::new('cityid')->setLabel("ID de l'appart"),
+            TextField::new('thumbnail')->setLabel('Image aperçu'), //To-do : replace this by a ImageField
         ];
     }
 

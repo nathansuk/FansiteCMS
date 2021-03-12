@@ -1,0 +1,65 @@
+{% extends '@EasyAdmin/page/content.html.twig' %}
+
+
+{% block page_title %} Panel d'Administration {% endblock %}
+
+{% block body_class %}
+
+    {% block page_content %}
+        <h2>Accueil </h2>
+
+        <div class='dashboard-stats'>
+            <div class='dashboard-stats--box linear-yellow'>
+                <h1>{{ nbUser }} <i class='fas fa-user-friends'></i></h1>
+            </div>
+            <div class='dashboard-stats--box linear-red'>
+                <h1>{{ nbNews }} <i class='fas fa-newspaper'></i></h1>
+            </div>
+            <div class='dashboard-stats--box linear-purple'>
+                <h1>{{ nbRooms }} <i class='fas fa-layer-group'></i></h1>
+            </div>
+
+            <div class='dashboard-stats--box linear-green'>
+                <h1>10 <i class='fas fa-gamepad'></i></h1>
+            </div>
+        </div>
+        <div class='chart' style='width: 300px; height: 300px;'>
+        <canvas id="myChart"></canvas>
+        </div>
+
+        {% endblock %}
+
+<script type='application/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js'></script>
+    <script>
+        window.onload = function() {
+            var ctx = document.getElementById('myChart').getContext('2d');
+            ctx.canvas.width = 1;
+            ctx.canvas.height = 1;
+            var myPieChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    datasets: [{
+                        fill: true,
+                        backgroundColor: [
+                            '#27ae60',
+                            '#e74c3c'],
+                        data: [10, 20]
+                    }],
+                    labels: [
+                        'Utilisateurs vérifiés',
+                        'Utilisateurs non vérifiés',
+                    ]
+                },
+                responsive: true,
+                options: {
+                    title: {
+                        display: true,
+                        position: 'top'
+                    },
+                    rotation: -0.7 * Math.PI
+                }
+            });
+        }
+
+    </script>
+{% endblock %}

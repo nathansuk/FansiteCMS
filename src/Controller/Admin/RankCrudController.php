@@ -18,8 +18,8 @@ class RankCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('name'),
-            TextField::new('image')
+            TextField::new('name')->setLabel('Titre du rank'),
+            TextField::new('image')->setLabel('Image page staff')
         ];
     }
 

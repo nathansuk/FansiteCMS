@@ -9,6 +9,7 @@ use App\Entity\Rank;
 use App\Entity\Room;
 use App\Entity\StaffStream;
 use App\Entity\User;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -22,7 +23,16 @@ class DashboardController extends AbstractDashboardController
      */
     public function index(): Response
     {
-        return parent::index();
+
+        $nbUsers = $this->getDoctrine()->getRepository(User::class)->count(array());
+        $nbNews = $this->getDoctrine()->getRepository(News::class)->count(array());
+        $nbRooms = $this->getDoctrine()->getRepository(Room::class)->count(array());
+
+        return $this->render('bundles/easyadmin/home.html.twig', [
+            'nbUser' => $nbUsers,
+            'nbNews' => $nbNews,
+            'nbRooms' => $nbRooms
+        ]);
     }
 
     public function configureDashboard(): Dashboard
@@ -47,4 +57,8 @@ class DashboardController extends AbstractDashboardController
     }
 
 
+    public function configureAssets(): Assets
+    {
+        return Assets::new()->addCssFile('build/custom_admin.css');
+    }
 }

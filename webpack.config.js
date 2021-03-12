@@ -22,6 +22,7 @@ Encore
      */
     .addEntry('style', '/public/assets/sass/main.sass')
     .addEntry('app', '/public/assets/js/app.js')
+    .addEntry('custom_admin', '/public/assets/sass/custom_admin.sass')
     .copyFiles([
         {from: './node_modules/ckeditor/', to: 'ckeditor/[path][name].[ext]', pattern: /\.(js|css)$/, includeSubdirectories: false},
         {from: './node_modules/ckeditor/adapters', to: 'ckeditor/adapters/[path][name].[ext]'},
