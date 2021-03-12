@@ -23,12 +23,13 @@
         </div>
 
     </div>
+   </a>
 
        <div class="list--all-news w-100 flx-row">
 
            {% for news in newsarray[1:] %}
 
-               <div class="all-news--item" style="background-image: url({{ news.ImaageUrL }})">
+               <div class="all-news--item" style="background-image: url({{ news.ImaageUrL }})" onclick="location.href = '/news/{{ news.id }}'">
                    <div class="last-article-content">
                    <div id="article-title">
                        <span id="article-title-text">{{ news.title }} </span>

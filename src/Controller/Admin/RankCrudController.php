@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Rank;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class RankCrudController extends AbstractCrudController
@@ -18,6 +19,7 @@ class RankCrudController extends AbstractCrudController
     {
         return [
             TextField::new('name'),
+            TextField::new('image')
         ];
     }
 

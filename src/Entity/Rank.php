@@ -29,6 +29,11 @@ class Rank
      */
     private $users;
 
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $image;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
@@ -81,7 +86,18 @@ class Rank
         return $this;
     }
 
+    public function getImage(): ?string{
+        return $this->image;
+    }
+
+    public function setImage(string $image): self {
+        $this->image = $image;
+
+        return $this;
+    }
+
     public function __toString(): string {
         return $this->name;
     }
+
 }

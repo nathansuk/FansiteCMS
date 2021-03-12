@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello TeamController!{% endblock %}
+{% block title %}{{site_name}} : Notre équipe{% endblock %}
 
 {% block body %}
     {% for rank in ranks|reverse %}
@@ -9,14 +9,14 @@
             <!-- We get ranks except member's one -->
             <div class="staff-rank flx-column">
                <div class="rank-title w-100">
-                   <h1>{{ rank.name }}</h1>
+                   <h2>{{ rank.name }}</h2>
                </div>
          <div class="rank-userlist flx-row">
              {% if rank.getUsers() is not empty %}
                 {% for user in rank.getUsers() %}
                     <div class="rank-users flx-row" onclick="location.href = '/profile/{{ user.username }}'">
                         <img
-                            src="https://i.pinimg.com/originals/0c/fe/48/0cfe48335eca1ec76577f1b1fd5b89b6.jpg"
+                            src="{{ user.rank.image }}"
                             alt="Background"
                             class="box-background">
                         <img src="https://api.habbocity.me/avatar_image.php?user={{ user.username }}&headonly=0&direction=2&head_direction=2&size=l" alt="Avatar">
@@ -24,7 +24,7 @@
                     </div>
                 {% endfor %}
                  {% else %}
-                     <h2 class="no-user">Personne à afficher</h2>
+                     <h2 class="no-user">Il n'y a personne dans cette catégorie.</h2>
              {% endif %}
          </div>
 

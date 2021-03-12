@@ -263,7 +263,7 @@ a
 /* / ROOM PAGE */
 .show-news
   @extend %main-box-style
-  height: 400px
+  height: auto
 
   &--error
     text-align: center
@@ -333,6 +333,7 @@ a
     transition: ease-in 0.2s
     background-size: cover
     margin-bottom: 10px
+    cursor: pointer
 
     &:hover
       transition: ease-in 0.2s
@@ -526,11 +527,11 @@ a
 .rank-title
   height: 60px
   background-color: #4c5367
-  padding-left: 10px
   border-radius: 10px
-  h1
+  h2
     position: relative
-    bottom: 10px
+    bottom: 5px
+    margin-left: 20px
 
 .rank-userlist
   flex-flow: row wrap
